@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream-100 text-charcoal-700 font-sans;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-serif;
+    line-height: 1.2;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  input, textarea, select {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-[#7A1F3D] text-cream-100 font-sans font-medium 
+           px-7 py-3.5 rounded-full text-sm tracking-wide
+           transition-all duration-300 ease-out
+           hover:bg-[#76508A] hover:shadow-lg hover:shadow-[#7A1F3D]/20 hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-[#76508A] focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 border border-brand-plum text-brand-plum font-sans font-medium 
+           px-7 py-3.5 rounded-full text-sm tracking-wide
+           transition-all duration-300 ease-out
+           hover:bg-brand-plum hover:text-cream-100 hover:shadow-lg hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-brand-plum focus:ring-offset-2;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center gap-2 bg-[#25D366] text-white font-sans font-medium
+           px-7 py-3.5 rounded-full text-sm tracking-wide
+           transition-all duration-300 ease-out
+           hover:bg-[#1da851] hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-cream-100 font-sans font-medium
+           px-7 py-3.5 rounded-full text-sm tracking-wide border border-cream-200/40
+           transition-all duration-300 ease-out
+           hover:bg-cream-100/10 hover:border-cream-200/70
+           focus:outline-none focus:ring-2 focus:ring-cream-200 focus:ring-offset-2;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-sans font-semibold tracking-[0.2em] uppercase text-brand-plum;
+  }
+
+  .section-heading {
+    @apply font-serif text-charcoal-700 leading-tight;
+  }
+
+  .section-subtext {
+    @apply font-sans text-charcoal-500 leading-relaxed;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-2xl shadow-sm border border-cream-300/60
+           transition-all duration-300 ease-out
+           hover:shadow-md hover:-translate-y-1;
+  }
+
+  .card-service {
+    @apply bg-white rounded-xl overflow-hidden border border-cream-300/50
+           transition-all duration-300 ease-out cursor-pointer
+           hover:shadow-lg hover:-translate-y-1.5;
+  }
+
+  .input-field {
+    @apply w-full font-sans text-sm text-charcoal-700 bg-white border border-cream-400 rounded-xl
+           px-4 py-3.5 outline-none
+           transition-all duration-200
+           placeholder:text-charcoal-300
+           focus:border-green-500 focus:ring-2 focus:ring-green-100
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .select-field {
+    @apply input-field cursor-pointer appearance-none bg-white;
+  }
+
+  .label-text {
+    @apply block font-sans text-sm font-medium text-charcoal-600 mb-1.5;
+  }
+
+  .divider {
+    @apply w-12 h-0.5 bg-[#B8960C];
+  }
+
+  .divider-long {
+    @apply w-20 h-0.5 bg-[#B8960C];
+  }
+
+  .script-text {
+    @apply font-script text-brand-gold;
+  }
+
+  /* Overlay utilities */
+  .overlay-gradient {
+    background: linear-gradient(135deg, rgba(27, 67, 50, 0.92) 0%, rgba(27, 67, 50, 0.7) 100%);
+  }
+
+  /* Line clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-brand {
+    background: linear-gradient(135deg, #7A1F3D 0%, #76508A 100%);
+  }
+
+  .gradient-cream {
+    background: linear-gradient(135deg, #C6A15B 0%, #E8DDD0 100%);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF7F2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C6A15B;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7A1F3D;
+  }
+}
