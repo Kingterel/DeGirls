@@ -30,7 +30,7 @@ const CONTACT_INFO = [
   {
     icon: Clock,
     label: 'Hours',
-    value: 'Mon – Sun: 7am – 7pm',
+    value: 'Monday to Sunday, 7am to 7pm',
     href: null,
   },
 ];
@@ -71,8 +71,8 @@ export default function Contact() {
                     {CONTACT_INFO.map((item) => {
                       const Content = (
                         <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 rounded-xl bg-green-50 border border-green-100 flex items-center justify-center flex-shrink-0">
-                            <item.icon size={18} className="text-green-600" strokeWidth={1.5} />
+                          <div className="w-10 h-10 rounded-xl bg-[#F0D6DF] border border-[#DFA8BB] flex items-center justify-center flex-shrink-0">
+                            <item.icon size={18} className="text-[#7A1F3D]" strokeWidth={1.5} />
                           </div>
                           <div>
                             <p className="font-sans text-xs text-charcoal-400 font-medium uppercase tracking-wider mb-0.5">
@@ -119,7 +119,7 @@ export default function Contact() {
                         rel="noopener noreferrer"
                         aria-label={label}
                         id={`contact-${label.toLowerCase()}`}
-                        className="w-10 h-10 rounded-xl border border-cream-400 bg-white flex items-center justify-center text-charcoal-500 hover:bg-green-600 hover:text-cream-100 hover:border-green-600 transition-all duration-200"
+                        className="w-10 h-10 rounded-xl border border-cream-400 bg-white flex items-center justify-center text-charcoal-500 hover:bg-[#7A1F3D] hover:text-cream-100 hover:border-[#7A1F3D] transition-all duration-200"
                       >
                         <Icon size={16} />
                       </a>

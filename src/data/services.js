@@ -3,6 +3,7 @@ import marketRunImg from '../assets/service_market_run.jpg';
 import findItImg from '../assets/service_find_it.jpg';
 import eventEditImg from '../assets/service_event_edit.jpg';
 import bespokeBoxImg from '../assets/service_bespoke_box.jpg';
+import corporateImg from '../assets/corporate_gift.jpg';
 import { WHATSAPP_MESSAGES } from '../config/site.js';
 
 export const SERVICES = [
@@ -10,17 +11,17 @@ export const SERVICES = [
     id: 'market-run',
     number: '01',
     name: 'The Market Run',
-    shortDescription: 'Groceries, household & office items delivered.',
+    shortDescription: 'Groceries, household and office items delivered to you.',
     fullDescription:
       'Let us handle your grocery shopping and household supply runs so you can focus on what matters most. We source fresh produce, pantry staples, and household essentials from trusted markets and supermarkets.',
     image: marketRunImg,
     items: [
-      'Fresh produce & groceries',
-      'Pantry & cooking staples',
+      'Fresh produce and groceries',
+      'Pantry and cooking staples',
       'Household cleaning supplies',
-      'Office stationery & essentials',
+      'Office stationery and essentials',
       'Personal care items',
-      'Baby & family essentials',
+      'Baby and family essentials',
     ],
     exampleRequests: [
       '"Get me a week\'s worth of groceries from the market."',
@@ -40,7 +41,7 @@ export const SERVICES = [
     name: 'Find It For Me',
     shortDescription: 'We locate any item from a photo, name, or description.',
     fullDescription:
-      'Can\'t find that specific item? Share a photo, name, or description with us and we\'ll track it down. From rare ingredients to hard-to-find products — we locate, verify quality, and deliver.',
+      'Can\'t find that specific item? Share a photo, name, or description with us and we\'ll track it down. From rare ingredients to hard-to-find products, we locate, verify quality, and deliver.',
     image: findItImg,
     items: [
       'Specific branded products',
@@ -52,7 +53,7 @@ export const SERVICES = [
     ],
     exampleRequests: [
       '"Find me this exact bag from the photo I sent."',
-      '"I need this specific brand of olive oil — can\'t find it anywhere."',
+      '"I need this specific brand of olive oil, can\'t find it anywhere."',
       '"Track down a particular piece of ankara fabric for me."',
     ],
     whatsappMessage: WHATSAPP_MESSAGES.findIt,
@@ -68,24 +69,24 @@ export const SERVICES = [
     name: 'The Event Edit',
     shortDescription: 'Sourcing for weddings, parties, showers and conferences.',
     fullDescription:
-      'Planning an event? We handle all the sourcing so your occasion is perfectly outfitted — from decorations and catering supplies to custom favours and venue items.',
+      'Planning an event? We handle all the sourcing so your occasion is perfectly outfitted. From decorations and catering supplies to custom favours and venue items, we take care of it all.',
     image: eventEditImg,
     items: [
-      'Wedding & engagement decor items',
-      'Baby shower & birthday supplies',
-      'Conference & corporate event materials',
-      'Custom event favours & packaging',
-      'Floral arrangements & table decor',
-      'Catering supplies & serveware',
+      'Wedding and engagement decor items',
+      'Baby shower and birthday supplies',
+      'Conference and corporate event materials',
+      'Custom event favours and packaging',
+      'Floral arrangements and table decor',
+      'Catering supplies and serveware',
     ],
     exampleRequests: [
       '"I need sourcing for a baby shower for 60 guests."',
       '"Help me find everything for a corporate conference."',
-      '"I\'m planning a bridal shower — need a full supply list sourced."',
+      '"I\'m planning a bridal shower and need a full supply list sourced."',
     ],
     whatsappMessage: WHATSAPP_MESSAGES.eventEdit,
     howItWorks: [
-      'Tell us about your event — type, date, and guest count.',
+      'Tell us about your event, the type, date, and guest count.',
       'We create a sourcing plan and share options with you.',
       'We procure and deliver all items ahead of your event.',
     ],
@@ -96,20 +97,20 @@ export const SERVICES = [
     name: 'The Bespoke Box',
     shortDescription: 'Curated gift hampers made for any occasion and budget.',
     fullDescription:
-      'Our signature gift hampers are thoughtfully curated for any occasion. We handpick premium products, package them beautifully, and deliver with a personal touch — every single time.',
+      'Our signature gift hampers are thoughtfully curated for any occasion. We handpick premium products, package them beautifully, and deliver with a personal touch every single time.',
     image: bespokeBoxImg,
     items: [
-      'Birthday & anniversary hampers',
+      'Birthday and anniversary hampers',
       'Corporate gift sets',
-      'New baby & new home gifts',
-      'Festive & holiday hampers',
+      'New baby and new home gifts',
+      'Festive and holiday hampers',
       'Just-because gift boxes',
-      'Luxury skin care & wellness sets',
+      'Luxury skin care and wellness sets',
     ],
     exampleRequests: [
-      '"Create a birthday hamper for my mum — budget ₦30,000."',
+      '"Create a birthday hamper for my mum, budget ₦30,000."',
       '"I need 20 corporate Christmas hampers."',
-      '"A luxury box for a new mum — very special and premium."',
+      '"A luxury box for a new mum, very special and premium."',
     ],
     whatsappMessage: WHATSAPP_MESSAGES.bespokeBox,
     howItWorks: [
@@ -121,21 +122,21 @@ export const SERVICES = [
   {
     id: 'home-office-sourcing',
     number: '05',
-    name: 'Home & Office Sourcing',
-    shortDescription: 'Full setup for kitchen, decor, pantry, office supplies.',
+    name: 'Home and Office Sourcing',
+    shortDescription: 'Full setup for kitchen, decor, pantry and office supplies.',
     fullDescription:
       'Moving into a new home or setting up an office? We handle the full sourcing and procurement so your space is perfectly stocked and styled from day one.',
     image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80&fit=crop',
     items: [
-      'Kitchen setup & pantry stocking',
-      'Home decor & furnishing items',
-      'Office supplies & stationery',
-      'Smart home & tech accessories',
-      'Cleaning & maintenance supplies',
-      'Bathroom & bedroom essentials',
+      'Kitchen setup and pantry stocking',
+      'Home decor and furnishing items',
+      'Office supplies and stationery',
+      'Smart home and tech accessories',
+      'Cleaning and maintenance supplies',
+      'Bathroom and bedroom essentials',
     ],
     exampleRequests: [
-      '"I just moved into a new apartment — help me set up everything."',
+      '"I just moved into a new apartment, help me set up everything."',
       '"Stock my new office for 15 employees."',
       '"Help me source all kitchen items for my new home."',
     ],
@@ -152,12 +153,12 @@ export const SERVICES = [
     name: 'Corporate Procurement',
     shortDescription: 'Bulk corporate gifts, branded items, and bulk purchasing.',
     fullDescription:
-      'We partner with businesses to handle their gifting and procurement needs at scale. From branded gifts to bulk office supplies — we make corporate sourcing effortless and cost-effective.',
-    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80&fit=crop',
+      'We partner with businesses to handle their gifting and procurement needs at scale. From branded gifts to bulk office supplies, we make corporate sourcing effortless and cost-effective.',
+    image: corporateImg,
     items: [
-      'Executive & employee gift sets',
-      'Branded merchandise & apparel',
-      'Bulk event & conference materials',
+      'Executive and employee gift sets',
+      'Branded merchandise and apparel',
+      'Bulk event and conference materials',
       'Client appreciation packages',
       'Seasonal corporate hampers',
       'Office supply bulk orders',
@@ -171,7 +172,7 @@ export const SERVICES = [
     howItWorks: [
       'Share your requirements, quantity, and budget.',
       'We provide a tailored proposal and sourcing plan.',
-      'We procure, brand (if needed), and deliver on schedule.',
+      'We procure, brand if needed, and deliver on schedule.',
     ],
   },
 ];

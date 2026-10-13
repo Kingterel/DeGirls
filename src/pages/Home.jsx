@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 import heroImg from '../assets/hero.jpg';
 import promiseImg from '../assets/promise.jpg';
+import corporateImg from '../assets/corporate_gift.jpg';
 
 import SectionHeading from '../components/SectionHeading.jsx';
 import ServiceCard from '../components/ServiceCard.jsx';
@@ -71,11 +72,42 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       {/* ─── HERO ─── */}
-      <section className="relative bg-cream-100 pt-16 lg:pt-[72px] min-h-[90vh] flex items-center overflow-hidden">
-        <div className="container-custom w-full py-16 lg:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left — Copy */}
-            <div className="order-2 lg:order-1">
+      <section className="relative bg-cream-100 pt-16 lg:pt-[72px] overflow-hidden">
+        {/* Brand Identity Banner — full width, the very first thing visitors see */}
+        <motion.div
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
+          className="relative w-full overflow-hidden shadow-lg shadow-[#7A1F3D]/10"
+        >
+          <img
+            src={heroImg}
+            alt="Artmee Limited, premium shopping and gifting service in Abuja"
+            className="w-full object-cover object-center"
+            style={{ maxHeight: '72vh' }}
+            fetchPriority="high"
+          />
+          {/* Subtle gradient vignette at bottom */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream-100/60 pointer-events-none" />
+          {/* Floating service pills */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.0, duration: 0.5 }}
+            className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-4 shadow-lg hidden sm:block"
+          >
+            {['Gifts', 'Groceries', 'Events', 'Corporate', '& More'].map((item) => (
+              <div key={item} className="flex items-center gap-1.5 mb-1 last:mb-0">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#7A1F3D] flex-shrink-0" />
+                <span className="font-sans text-xs font-medium text-charcoal-600">{item}</span>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Copy + CTAs — below the brand image */}
+        <div className="container-custom w-full py-14 lg:py-20">
+          <div className="max-w-3xl mx-auto text-center">
               <motion.p
                 custom={0}
                 variants={fadeUp}
@@ -83,7 +115,7 @@ export default function Home() {
                 animate="visible"
                 className="section-eyebrow mb-5"
               >
-                Your personal concierge for shopping &amp; gifting in Abuja
+                Your personal shopping and gifting partner in Abuja
               </motion.p>
 
               <motion.h1
@@ -103,7 +135,7 @@ export default function Home() {
                 animate="visible"
                 className="font-sans text-base sm:text-lg text-charcoal-500 leading-relaxed mb-10 max-w-lg"
               >
-                From everyday essentials to special occasions, events, and corporate orders — we find, curate and deliver.
+                Whether it's everyday essentials, a special occasion, or a corporate order, we find it, curate it, and deliver it.
               </motion.p>
 
               <motion.div
@@ -111,7 +143,7 @@ export default function Home() {
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap gap-4 justify-center"
               >
                 <Link to="/services" className="btn-primary text-sm px-8 py-4" id="hero-cta-services">
                   Explore Our Services
@@ -137,65 +169,21 @@ export default function Home() {
                 animate="visible"
                 className="flex flex-wrap gap-x-6 gap-y-2 mt-10"
               >
-                {['Abuja-based & trusted', 'Every budget welcome'].map(
+                {['Based in Abuja, trusted across Nigeria', 'Every budget welcome'].map(
                   (item) => (
                     <div key={item} className="flex items-center gap-2 text-xs font-sans text-charcoal-400">
-                      <CheckCircle size={13} className="text-green-600 flex-shrink-0" />
+                      <CheckCircle size={13} className="text-[#7A1F3D] flex-shrink-0" />
                       {item}
                     </div>
                   )
                 )}
               </motion.div>
             </div>
-
-            {/* Right — Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.97, x: 20 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-              className="order-1 lg:order-2 relative"
-            >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-green-900/10 aspect-[4/3] lg:aspect-auto lg:h-[560px]">
-                <img
-                  src={heroImg}
-                  alt="Elegant gift boxes, shopping bags, and grocery baskets — Artmee Limited"
-                  className="w-full h-full object-cover"
-                  fetchPriority="high"
-                />
-                {/* Floating card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                  className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-lg"
-                >
-                  <p className="font-script text-2xl text-green-600 leading-none mb-1">More time</p>
-                  <p className="font-script text-2xl text-green-600 leading-none">for what matters</p>
-                  <div className="w-8 h-0.5 bg-gold-DEFAULT mt-2" />
-                </motion.div>
-
-                {/* List Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.1, duration: 0.5 }}
-                  className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-4 shadow-lg"
-                >
-                  {['Gifts', 'Groceries', 'Events', 'Corporate', '& More'].map((item) => (
-                    <div key={item} className="flex items-center gap-1.5 mb-1 last:mb-0">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-600 flex-shrink-0" />
-                      <span className="font-sans text-xs font-medium text-charcoal-600">{item}</span>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-
-              {/* Decorative blobs */}
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-green-100 rounded-full opacity-40 blur-3xl -z-10" />
-              <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-cream-300 rounded-full opacity-60 blur-3xl -z-10" />
-            </motion.div>
           </div>
-        </div>
+
+        {/* Decorative blobs */}
+        <div className="absolute top-1/3 -right-16 w-48 h-48 bg-[#F0D6DF] rounded-full opacity-30 blur-3xl -z-10 pointer-events-none" />
+        <div className="absolute top-1/2 -left-16 w-48 h-48 bg-cream-300 rounded-full opacity-40 blur-3xl -z-10 pointer-events-none" />
       </section>
 
       {/* ─── SERVICES ─── */}
@@ -204,7 +192,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Our Services"
             heading="Six Ways We Make Life Easier"
-            subtext="Whether it's a quick grocery run or a full event setup, we've got you covered."
+            subtext="From a quick grocery run to a full event setup, we have you covered."
             align="center"
             className="mb-14"
           />
@@ -238,7 +226,7 @@ export default function Home() {
                 className="flex items-start gap-4"
               >
                 <div className="w-11 h-11 rounded-xl border border-cream-400 bg-white flex items-center justify-center flex-shrink-0">
-                  <item.icon size={20} className="text-green-600" strokeWidth={1.5} />
+                  <item.icon size={20} className="text-[#7A1F3D]" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="font-serif text-base font-semibold text-charcoal-700 leading-tight">
@@ -263,13 +251,13 @@ export default function Home() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.65, ease: 'easeOut' }}
             >
-              <p className="font-script text-3xl text-green-500 mb-4">Our Promise</p>
+              <p className="font-script text-3xl text-[#7A1F3D] mb-4">Our Promise</p>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-charcoal-700 leading-tight mb-6">
                 We do the shopping, so you can focus on what really matters.
               </h2>
               <div className="divider mb-6" />
               <p className="font-sans text-charcoal-500 text-base leading-relaxed mb-8">
-                Gifts, essentials, events, and corporate orders — all in one place. We take the stress out of shopping so your time, energy, and focus stay where they belong.
+                Gifts, essentials, events, corporate orders. All in one place. We take the stress out of shopping so your time, energy, and focus stay where they belong.
               </p>
 
               <ul className="space-y-3 mb-10">
@@ -280,7 +268,7 @@ export default function Home() {
                   'White-glove service, always',
                 ].map((point) => (
                   <li key={point} className="flex items-center gap-3 text-sm font-sans text-charcoal-600">
-                    <CheckCircle size={16} className="text-green-600 flex-shrink-0" />
+                    <CheckCircle size={16} className="text-[#7A1F3D] flex-shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -300,7 +288,7 @@ export default function Home() {
               transition={{ duration: 0.65, ease: 'easeOut' }}
               className="relative"
             >
-              <div className="rounded-3xl overflow-hidden aspect-[3/4] lg:aspect-[4/5] shadow-xl shadow-green-900/10">
+              <div className="rounded-3xl overflow-hidden aspect-[3/4] lg:aspect-[4/5] shadow-xl shadow-[#7A1F3D]/10">
                 <img
                   src={promiseImg}
                   alt="Happy customer relaxing while Artmee Limited handles her shopping"
@@ -308,7 +296,7 @@ export default function Home() {
                   className="w-full h-full object-cover object-top"
                 />
                 {/* Overlay text */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-green-900/80 via-green-900/30 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#7A1F3D]/80 via-[#76508A]/30 to-transparent">
                   <p className="font-script text-white text-3xl leading-tight">Shopping &</p>
                   <p className="font-script text-white text-3xl leading-tight">Gifting Simplified</p>
                 </div>
@@ -316,7 +304,7 @@ export default function Home() {
 
               {/* Decorative blob */}
               <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-cream-300 rounded-full blur-3xl opacity-60 -z-10" />
-              <div className="absolute -top-8 -right-8 w-32 h-32 bg-green-100 rounded-full blur-3xl opacity-40 -z-10" />
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-[#F0D6DF] rounded-full blur-3xl opacity-40 -z-10" />
             </motion.div>
           </div>
         </div>
@@ -328,7 +316,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="How It Works"
             heading="Simple as 1, 2, 3"
-            subtext="Getting started with Artmee Limited takes just a few minutes."
+            subtext="Getting started with Artmee Limited only takes a few minutes."
             align="center"
             className="mb-16"
           />
@@ -348,7 +336,7 @@ export default function Home() {
                   className="flex flex-col items-start lg:items-center text-left lg:text-center"
                 >
                   <div className="w-24 h-24 bg-white rounded-2xl border border-cream-300 shadow-sm flex items-center justify-center mb-6">
-                    <span className="font-serif text-3xl font-bold text-green-600">{step.step}</span>
+                    <span className="font-serif text-3xl font-bold text-[#7A1F3D]">{step.step}</span>
                   </div>
                   <h3 className="font-serif text-xl text-charcoal-700 mb-3">{step.title}</h3>
                   <p className="font-sans text-sm text-charcoal-500 leading-relaxed max-w-xs">
@@ -394,7 +382,7 @@ export default function Home() {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-green-900/80 via-green-900/20 to-transparent transition-all duration-300 group-hover:from-green-900/90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#7A1F3D]/80 via-[#7A1F3D]/20 to-transparent transition-all duration-300 group-hover:from-[#7A1F3D]/90" />
                 <div className="absolute inset-0 flex flex-col items-start justify-end p-4">
                   <p className="font-serif text-white text-base font-medium leading-tight">
                     {occasion.name}
@@ -417,7 +405,7 @@ export default function Home() {
       </section>
 
       {/* ─── CORPORATE ─── */}
-      <section className="bg-green-600 py-20 lg:py-28">
+      <section className="bg-[#7A1F3D] py-20 lg:py-28">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
@@ -426,13 +414,13 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="section-eyebrow text-green-300 mb-4">Corporate Services</p>
+              <p className="section-eyebrow text-[#C97A96] mb-4">Corporate Services</p>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-cream-100 leading-tight mb-6">
                 Make Corporate Gifting Effortless
               </h2>
               <div className="w-12 h-0.5 bg-gold-light mb-6" />
               <p className="font-sans text-cream-400 text-base leading-relaxed mb-8 max-w-lg">
-                From executive gifts to bulk procurement, we help businesses source, curate, and deliver with ease. We've handled orders for 10 to 500+ recipients — always on time, always impressive.
+                From executive gifts to bulk procurement, we help businesses source, curate, and deliver with ease. We've handled orders for 10 to 500 recipients and always show up on time.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
@@ -455,14 +443,14 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="relative"
             >
-              <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl shadow-green-900/30">
+              <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl shadow-[#7A1F3D]/30">
                 <img
-                  src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80&fit=crop"
+                  src={corporateImg}
                   alt="Corporate gift boxes arranged elegantly"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-green-900/20" />
+                <div className="absolute inset-0 bg-[#7A1F3D]/20" />
               </div>
             </motion.div>
           </div>
@@ -475,7 +463,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Client Stories"
             heading="What Our Clients Say"
-            subtext="Real feedback from people we've had the pleasure of serving."
+            subtext="Here's what some of the people we've served have to say."
             align="center"
             className="mb-14"
           />
@@ -505,7 +493,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link
               to="/faqs"
-              className="inline-flex items-center gap-2 font-sans text-sm font-medium text-green-600 hover:text-green-500 transition-colors group"
+              className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#7A1F3D] hover:text-[#76508A] transition-colors group"
               id="faq-preview-cta"
             >
               View All FAQs
@@ -524,13 +512,13 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-script text-4xl text-green-500 mb-4">Let's get started</p>
+            <p className="font-script text-4xl text-[#7A1F3D] mb-4">Let's get started</p>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal-700 leading-tight mb-5">
               Need Something? Let Us Handle It.
             </h2>
             <div className="w-12 h-0.5 bg-gold-DEFAULT mx-auto mb-6" />
             <p className="font-sans text-charcoal-500 text-base sm:text-lg leading-relaxed mb-10">
-              Tell us what you need, and we'll take care of the rest. From a single gift to a full corporate order — no job is too small or too big.
+              Tell us what you need and we'll take care of the rest. Whether it's a single gift or a full corporate order, nothing is too small or too big for us.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/contact" className="btn-primary px-10 py-4 text-base" id="final-cta-btn">

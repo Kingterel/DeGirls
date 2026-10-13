@@ -7,19 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Existing palette
+        // Brand palette — replaces all green usages site-wide
         green: {
-          DEFAULT: '#1B4332',
-          50: '#F0F7F4',
-          100: '#D6EDE3',
-          200: '#ADDEC7',
-          300: '#74C69D',
-          400: '#40A870',
-          500: '#2D6A4F',
-          600: '#1B4332',
-          700: '#143328',
-          800: '#0D2219',
-          900: '#06110D',
+          DEFAULT: '#7A1F3D',
+          50: '#F9F0F3',
+          100: '#F0D6DF',
+          200: '#DFA8BB',
+          300: '#C97A96',
+          400: '#A84D6F',
+          500: '#8E2E52',
+          600: '#7A1F3D',
+          700: '#5E1730',
+          800: '#421024',
+          900: '#260917',
         },
         cream: {
           DEFAULT: '#FAF7F2',
@@ -31,9 +31,9 @@ export default {
           500: '#C4B8A8',
         },
         gold: {
-          DEFAULT: '#B8960C',
-          light: '#D4AE0E',
-          dark: '#8B7009',
+          DEFAULT: '#C6A15B',
+          light: '#D4B87A',
+          dark: '#9E7B3A',
         },
         charcoal: {
           DEFAULT: '#1C1C1C',

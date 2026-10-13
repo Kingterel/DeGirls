@@ -19,9 +19,9 @@ export default function ServiceDetail() {
       <div className="bg-cream-200 border-b border-cream-300 pt-20 lg:pt-[88px]">
         <div className="container-custom py-4">
           <div className="flex items-center gap-2 text-xs font-sans text-charcoal-400">
-            <Link to="/" className="hover:text-green-600 transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#7A1F3D] transition-colors">Home</Link>
             <span>/</span>
-            <Link to="/services" className="hover:text-green-600 transition-colors">Services</Link>
+            <Link to="/services" className="hover:text-[#7A1F3D] transition-colors">Services</Link>
             <span>/</span>
             <span className="text-charcoal-600">{service.name}</span>
           </div>
@@ -37,7 +37,7 @@ export default function ServiceDetail() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-green-600 text-cream-100 px-4 py-1.5 rounded-full text-xs font-sans font-semibold mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#7A1F3D] text-cream-100 px-4 py-1.5 rounded-full text-xs font-sans font-semibold mb-6">
                 Service {service.number}
               </div>
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-[50px] text-charcoal-700 leading-tight mb-5">
@@ -105,7 +105,7 @@ export default function ServiceDetail() {
                       key={item}
                       className="flex items-start gap-3 bg-cream-200 rounded-xl px-4 py-3.5"
                     >
-                      <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircle size={16} className="text-[#7A1F3D] mt-0.5 flex-shrink-0" />
                       <span className="font-sans text-sm text-charcoal-600 leading-snug">{item}</span>
                     </div>
                   ))}
@@ -125,7 +125,7 @@ export default function ServiceDetail() {
                 <div className="space-y-5">
                   {service.howItWorks.map((step, i) => (
                     <div key={i} className="flex items-start gap-5">
-                      <div className="w-9 h-9 rounded-xl bg-green-600 text-cream-100 flex items-center justify-center flex-shrink-0 font-serif font-semibold text-base">
+                      <div className="w-9 h-9 rounded-xl bg-[#7A1F3D] text-cream-100 flex items-center justify-center flex-shrink-0 font-serif font-semibold text-base">
                         {String(i + 1).padStart(2, '0')}
                       </div>
                       <div className="pt-1.5">
@@ -165,7 +165,7 @@ export default function ServiceDetail() {
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
                 {/* Quick Enquiry CTA */}
-                <div className="bg-green-600 rounded-3xl p-7 text-cream-100">
+                <div className="bg-gradient-to-br from-[#7A1F3D] to-[#76508A] rounded-3xl p-7 text-cream-100">
                   <h3 className="font-serif text-xl mb-3">Ready to get started?</h3>
                   <p className="font-sans text-sm text-cream-400 leading-relaxed mb-6">
                     Send us your request and we'll take it from there.
@@ -208,7 +208,7 @@ export default function ServiceDetail() {
                       />
                     </div>
                     <div>
-                      <p className="font-serif text-sm font-semibold text-charcoal-700 group-hover:text-green-600 transition-colors">
+                      <p className="font-serif text-sm font-semibold text-charcoal-700 group-hover:text-[#7A1F3D] transition-colors">
                         {nextService.name}
                       </p>
                       <p className="font-sans text-xs text-charcoal-400 mt-0.5 leading-snug">
@@ -221,7 +221,7 @@ export default function ServiceDetail() {
                 {/* Back to Services */}
                 <Link
                   to="/services"
-                  className="flex items-center gap-2 font-sans text-sm text-charcoal-500 hover:text-green-600 transition-colors group"
+                  className="flex items-center gap-2 font-sans text-sm text-charcoal-500 hover:text-[#7A1F3D] transition-colors group"
                   id={`${service.id}-back-services`}
                 >
                   <ArrowLeft size={15} className="group-hover:-translate-x-1 transition-transform" />

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading.jsx';
@@ -10,20 +10,20 @@ export default function Services() {
   return (
     <main className="overflow-x-hidden">
       {/* Hero */}
-      <section className="bg-green-600 pt-28 pb-16 lg:pt-36 lg:pb-24">
+      <section className="bg-gradient-to-br from-[#7A1F3D] to-[#76508A] pt-28 pb-16 lg:pt-36 lg:pb-24">
         <div className="container-custom text-center max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="section-eyebrow text-green-300 mb-4">Our Services</p>
+            <p className="section-eyebrow text-[#C97A96] mb-4">Our Services</p>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-[52px] text-cream-100 leading-tight mb-6">
               Six Ways We Make Life Easier
             </h1>
             <div className="w-12 h-0.5 bg-gold-light mx-auto mb-6" />
             <p className="font-sans text-cream-400 text-base sm:text-lg leading-relaxed">
-              Whether it's a quick grocery run or a full event setup — we find, source, curate, and deliver.
+              Whether it is a quick grocery run or a full event setup, we find it, source it, curate it, and deliver it.
             </p>
           </motion.div>
         </div>

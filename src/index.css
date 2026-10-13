@@ -116,7 +116,7 @@
            px-4 py-3.5 outline-none
            transition-all duration-200
            placeholder:text-charcoal-300
-           focus:border-green-500 focus:ring-2 focus:ring-green-100
+           focus:border-brand-plum focus:ring-2 focus:ring-[#76508A]/10
            disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
@@ -142,7 +142,7 @@
 
   /* Overlay utilities */
   .overlay-gradient {
-    background: linear-gradient(135deg, rgba(27, 67, 50, 0.92) 0%, rgba(27, 67, 50, 0.7) 100%);
+    background: linear-gradient(135deg, rgba(122, 31, 61, 0.92) 0%, rgba(118, 80, 138, 0.7) 100%);
   }
 
   /* Line clamp */
@@ -170,6 +170,10 @@
     background: linear-gradient(135deg, #7A1F3D 0%, #76508A 100%);
   }
 
+  .gradient-plum {
+    background: linear-gradient(135deg, #76508A 0%, #7A1F3D 100%);
+  }
+
   .gradient-cream {
     background: linear-gradient(135deg, #C6A15B 0%, #E8DDD0 100%);
   }
@@ -182,7 +186,7 @@
     background: #FAF7F2;
   }
   ::-webkit-scrollbar-thumb {
-    background: #C6A15B;
+    background: #76508A;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {

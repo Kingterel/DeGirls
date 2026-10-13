@@ -1,3 +1,5 @@
+import corporateImg from '../assets/corporate_gift.jpg';
+
 export const OCCASIONS = [
   {
     id: 'birthdays',
@@ -24,7 +26,7 @@ export const OCCASIONS = [
     id: 'corporate-gifts',
     name: 'Corporate Gifts',
     description: 'Impress clients and reward your team with distinction.',
-    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&q=80&fit=crop',
+    image: corporateImg,
     emoji: '💼',
   },
   {

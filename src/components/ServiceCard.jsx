@@ -21,7 +21,7 @@ export default function ServiceCard({ service, index }) {
         {/* Image */}
         <div className="relative overflow-hidden aspect-[4/3]">
           {/* Number Badge */}
-          <div className="absolute top-3 left-3 z-10 w-7 h-7 bg-green-600 text-cream-100 rounded-full flex items-center justify-center text-xs font-sans font-semibold">
+          <div className="absolute top-3 left-3 z-10 w-7 h-7 bg-[#7A1F3D] text-cream-100 rounded-full flex items-center justify-center text-xs font-sans font-semibold">
             {index + 1}
           </div>
 
@@ -36,13 +36,13 @@ export default function ServiceCard({ service, index }) {
 
         {/* Content */}
         <div className="p-5">
-          <h3 className="font-serif text-[17px] font-semibold text-charcoal-700 mb-1.5 group-hover:text-green-600 transition-colors duration-200">
+          <h3 className="font-serif text-[17px] font-semibold text-charcoal-700 mb-1.5 group-hover:text-[#7A1F3D] transition-colors duration-200">
             {service.name}
           </h3>
           <p className="font-sans text-sm text-charcoal-400 leading-relaxed mb-4">
             {service.shortDescription}
           </p>
-          <div className="flex items-center gap-1 text-green-600 group-hover:gap-2 transition-all duration-200">
+          <div className="flex items-center gap-1 text-[#7A1F3D] group-hover:gap-2 transition-all duration-200">
             <ArrowRight size={16} strokeWidth={2} />
           </div>
         </div>

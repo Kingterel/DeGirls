@@ -1,8 +1,9 @@
 import { useState, useRef } from 'react';
-import { CheckCircle, X, Upload, ChevronDown } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { CheckCircle, X, Upload, ChevronDown, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES } from '../data/services.js';
-import { getWhatsAppURL } from '../config/site.js';
+import { getWhatsAppURL, EMAILJS_CONFIG } from '../config/site.js';
 
 const INITIAL_FORM = {
   fullName: '',
@@ -39,6 +40,7 @@ export default function EnquiryForm({ preselectedService = '' }) {
   const [errors, setErrors] = useState(ERRORS_INIT);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [emailError, setEmailError] = useState(false);
   const [dragOver, setDragOver] = useState(false);
   const fileInputRef = useRef(null);
 
@@ -59,27 +61,56 @@ export default function EnquiryForm({ preselectedService = '' }) {
     const validationErrors = validateForm(form);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      // Scroll to first error
       const firstErrorEl = document.querySelector('[data-error="true"]');
       if (firstErrorEl) firstErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
     setLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setEmailError(false);
+    const service = SERVICES.find((s) => s.id === form.service);
+    const templateParams = {
+      from_name:         form.fullName,
+      from_phone:        form.phone,
+      from_email:        form.email || 'Not provided',
+      service_name:      service?.name || form.service,
+      description:       form.description,
+      budget:            form.budget || 'Not specified',
+      delivery_date:     form.deliveryDate || 'Flexible',
+      delivery_location: form.deliveryLocation,
+      notes:             form.notes || 'None',
+      image_uploaded:    form.imageFile
+        ? `Yes — filename: ${form.imageFile.name}. Ask the customer to send it via WhatsApp.`
+        : 'No',
+    };
+    try {
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        templateParams,
+        EMAILJS_CONFIG.publicKey,
+      );
+      setSubmitted(true);
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setEmailError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const buildWhatsAppMessage = () => {
     const service = SERVICES.find((s) => s.id === form.service);
-    return `Hello Artmee Limited,\n\nI would like to make an enquiry.\n\nName: ${form.fullName}\nPhone: ${form.phone}\nService: ${service?.name || form.service}\nDetails: ${form.description}\nBudget: ${form.budget || 'Not specified'}\nDelivery Date: ${form.deliveryDate || 'Flexible'}\nDelivery Location: ${form.deliveryLocation}\nNotes: ${form.notes || 'None'}`;
+    const imageNote = form.imageFile
+      ? `\nReference Image: I have uploaded a reference image (${form.imageFile.name}). I will send it here now.`
+      : '';
+    return `Hello Artmee Limited,\n\nI would like to make an enquiry.\n\nName: ${form.fullName}\nPhone: ${form.phone}\nService: ${service?.name || form.service}\nDetails: ${form.description}\nBudget: ${form.budget || 'Not specified'}\nDelivery Date: ${form.deliveryDate || 'Flexible'}\nDelivery Location: ${form.deliveryLocation}\nNotes: ${form.notes || 'None'}${imageNote}`;
   };
 
   const resetForm = () => {
     setForm({ ...INITIAL_FORM, service: preselectedService });
     setErrors(ERRORS_INIT);
     setSubmitted(false);
+    setEmailError(false);
   };
 
   const FieldError = ({ name }) =>
@@ -185,7 +216,7 @@ export default function EnquiryForm({ preselectedService = '' }) {
             id="description"
             name="description"
             rows={4}
-            placeholder="Describe what you're looking for — the more detail, the better!"
+            placeholder="Describe what you're looking for. The more detail you give us, the better!"
             value={form.description}
             onChange={handleChange}
             className={`input-field resize-none ${errors.description ? 'border-red-400 focus:border-red-400 focus:ring-red-100' : ''}`}
@@ -269,10 +300,10 @@ export default function EnquiryForm({ preselectedService = '' }) {
             onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFileChange(e.dataTransfer.files[0]); }}
             onClick={() => fileInputRef.current?.click()}
             className={`border-2 border-dashed rounded-xl px-6 py-8 flex flex-col items-center justify-center gap-3 cursor-pointer transition-all duration-200 ${dragOver
-                ? 'border-green-500 bg-green-50'
-                : form.imageFile
-                  ? 'border-green-400 bg-green-50'
-                  : 'border-cream-400 hover:border-green-300 hover:bg-cream-200/50'
+              ? 'border-[#7A1F3D] bg-[#F0D6DF]'
+              : form.imageFile
+                ? 'border-[#C97A96] bg-[#F9F0F3]'
+                : 'border-cream-400 hover:border-[#C97A96] hover:bg-cream-200/50'
               }`}
           >
             <input
@@ -285,8 +316,8 @@ export default function EnquiryForm({ preselectedService = '' }) {
             />
             {form.imageFile ? (
               <div className="flex items-center gap-3">
-                <CheckCircle size={20} className="text-green-600" />
-                <span className="font-sans text-sm text-green-700 font-medium">
+                <CheckCircle size={20} className="text-[#7A1F3D]" />
+                <span className="font-sans text-sm text-[#7A1F3D] font-medium">
                   {form.imageFile.name}
                 </span>
                 <button
@@ -315,6 +346,24 @@ export default function EnquiryForm({ preselectedService = '' }) {
             )}
           </div>
         </div>
+
+        {/* Email error banner */}
+        {emailError && (
+          <div className="flex items-start gap-3 rounded-xl bg-red-50 border border-red-200 px-4 py-3">
+            <AlertCircle size={18} className="text-red-500 flex-shrink-0 mt-0.5" />
+            <p className="font-sans text-sm text-red-700">
+              Sorry, we couldn't send your enquiry by email. Please try again or{' '}
+              <a
+                href={getWhatsAppURL(buildWhatsAppMessage())}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline font-medium"
+              >
+                reach us on WhatsApp
+              </a>.
+            </p>
+          </div>
+        )}
 
         {/* Submit */}
         <button
@@ -353,8 +402,8 @@ export default function EnquiryForm({ preselectedService = '' }) {
               className="bg-white rounded-3xl p-8 sm:p-12 max-w-md w-full text-center shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle size={32} className="text-green-600" strokeWidth={1.5} />
+              <div className="w-16 h-16 bg-[#F0D6DF] rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle size={32} className="text-[#7A1F3D]" strokeWidth={1.5} />
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl text-charcoal-700 mb-3">
                 Request Received!

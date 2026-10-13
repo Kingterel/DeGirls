@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, Heart, Star, Users, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import promiseImg from '../assets/promise.jpg';
@@ -41,10 +41,10 @@ export default function About() {
               </h1>
               <div className="w-12 h-0.5 bg-gold-DEFAULT mb-6" />
               <p className="font-sans text-charcoal-500 text-base sm:text-lg leading-relaxed mb-6">
-                Artmee Limited was founded on a simple belief: busy people in Abuja deserve a trusted partner who can handle all their shopping and gifting — so they can focus on what truly matters.
+                Artmee Limited was founded on a simple belief: busy people in Abuja deserve a trusted partner who can handle all their shopping and gifting so they can focus on what truly matters.
               </p>
               <p className="font-sans text-charcoal-500 text-base leading-relaxed">
-                We are not a generic online store. We are a concierge service — personal, responsive, and genuinely invested in getting it right every single time.
+                We are not a generic online store. We are a personal service, attentive, responsive, and genuinely invested in getting it right every single time.
               </p>
             </motion.div>
 
@@ -56,7 +56,7 @@ export default function About() {
             >
               <img
                 src={heroImg}
-                alt="Artmee Limited — Premium shopping and gifting service in Abuja"
+                alt="Artmee Limited team at work, premium shopping and gifting service in Abuja"
                 className="w-full h-full object-cover"
                 fetchPriority="high"
               />
@@ -78,7 +78,7 @@ export default function About() {
             >
               <img
                 src={promiseImg}
-                alt="A satisfied Concierge Cart client"
+                alt="A satisfied artmee limited Cart client"
                 loading="lazy"
                 className="w-full h-full object-cover object-top"
               />
@@ -90,19 +90,19 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.65 }}
             >
-              <p className="font-script text-3xl text-green-500 mb-4">Our Story</p>
+              <p className="font-script text-3xl text-[#7A1F3D] mb-4">Our Story</p>
               <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-700 leading-tight mb-6">
                 Started in Abuja, built for Abuja.
               </h2>
               <div className="space-y-4 font-sans text-charcoal-500 text-base leading-relaxed">
                 <p>
-                  We noticed a gap. People in Abuja were overwhelmed — juggling demanding careers, families, and social obligations — with barely enough time to think about shopping, let alone gifting or sourcing for events.
+                  We noticed a gap. People in Abuja were overwhelmed. Juggling demanding careers, families, and social obligations with barely enough time to think about shopping, let alone gifting or sourcing for events.
                 </p>
                 <p>
-                  So we created Artmee Limited: a seamless, white-glove service that handles all your shopping and gifting needs, from everyday essentials to milestone celebrations.
+                  So we created Artmee Limited, a service built to handle all your shopping and gifting needs. From everyday essentials to milestone celebrations, we take it off your plate.
                 </p>
                 <p>
-                  Since launching, we've helped hundreds of clients across Abuja — executives, mothers, newlyweds, event planners, and businesses — get exactly what they need, without the stress.
+                  Since launching, we've helped hundreds of clients across Abuja. Executives, mothers, newlyweds, event planners, businesses. All getting exactly what they need, without the stress.
                 </p>
               </div>
 
@@ -111,10 +111,10 @@ export default function About() {
                   'Hundreds of satisfied clients served',
                   'Same-day delivery within Abuja',
                   'Corporate partnerships across the FCT',
-                  'Every budget, every occasion',
+                  'Every budget and every occasion',
                 ].map((point) => (
                   <li key={point} className="flex items-center gap-3 font-sans text-sm text-charcoal-600">
-                    <CheckCircle size={16} className="text-green-600 flex-shrink-0" />
+                    <CheckCircle size={16} className="text-[#7A1F3D] flex-shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -141,8 +141,8 @@ export default function About() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white rounded-2xl p-8 border border-cream-300/60 shadow-sm"
               >
-                <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-5">
-                  <val.icon size={22} className="text-green-600" strokeWidth={1.5} />
+                <div className="w-12 h-12 bg-[#F0D6DF] rounded-xl flex items-center justify-center mb-5">
+                  <val.icon size={22} className="text-[#7A1F3D]" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-serif text-xl text-charcoal-700 mb-3">{val.title}</h3>
                 <p className="font-sans text-sm text-charcoal-500 leading-relaxed">{val.desc}</p>
@@ -153,7 +153,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-green-600 text-center">
+      <section className="py-20 bg-gradient-to-br from-[#7A1F3D] to-[#76508A] text-center">
         <div className="container-custom max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -165,7 +165,7 @@ export default function About() {
               Ready to experience the difference?
             </h2>
             <p className="font-sans text-cream-400 text-sm sm:text-base leading-relaxed mb-8">
-              Join hundreds of clients across Abuja who trust Artmee Limited with their shopping and gifting.
+              Join hundreds of clients across Abuja who trust Artmee Limited with their shopping and gifting needs.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/services" className="btn-ghost" id="about-services-cta">

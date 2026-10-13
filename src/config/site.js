@@ -1,14 +1,23 @@
 // Site-wide configuration
+
+// ─── EmailJS Configuration ───────────────────────────────────────────────────
+// Sign up at https://emailjs.com, then fill in your credentials below.
+export const EMAILJS_CONFIG = {
+  serviceId:  'service_o61ro0i',
+  templateId: 'template_4afjo1c',
+  publicKey:  'SbwjKMxKi4fJME0Vs',
+};
+// ─────────────────────────────────────────────────────────────────────────────
 export const SITE_CONFIG = {
   name: 'Artmee Limited',
-  tagline: 'Your personal concierge for shopping and gifting in Nigeria.',
+  tagline: 'Your personal artmee limited for shopping and gifting in Nigeria.',
   location: 'Abuja, Nigeria',
-  whatsappNumber: '+2349012345678', // Replace with actual number
-  email: 'hello@conciergecart.ng',
-  instagram: 'https://instagram.com/conciergecart',
-  tiktok: 'https://tiktok.com/@conciergecart',
-  twitter: 'https://twitter.com/conciergecart',
-  facebook: 'https://facebook.com/conciergecart',
+  whatsappNumber: '+2348037648122',
+  email: 'kyeluwa.terungwa@gmail.com',
+  instagram: 'https://instagram.com/artmeelimited',
+  tiktok: 'https://tiktok.com/@artmeelimited',
+  twitter: 'https://twitter.com/artmeelimited',
+  facebook: 'https://facebook.com/artmeelimited',
 };
 
 export const WHATSAPP_MESSAGES = {
