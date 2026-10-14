@@ -26,7 +26,7 @@ export default function SectionHeading({
       {eyebrow && (
         <span
           className={`section-eyebrow ${
-            light ? 'text-[#C97A96]' : 'text-[#7A1F3D]'
+            light ? 'text-brand-gold-light' : 'text-brand-coral'
           }`}
         >
           {eyebrow}
@@ -34,7 +34,7 @@ export default function SectionHeading({
       )}
       <h2
         className={`section-heading text-3xl sm:text-4xl lg:text-[42px] max-w-2xl ${
-          light ? 'text-cream-100' : 'text-charcoal-700'
+          light ? 'text-white' : 'text-charcoal-900'
         } ${align === 'center' ? 'mx-auto' : ''}`}
       >
         {heading}

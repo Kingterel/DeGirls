@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Gift, MapPin, Mail, MessageCircle, ArrowRight } from 'lucide-react';
+import { MapPin, Mail, MessageCircle, ArrowRight } from 'lucide-react';
+import artmeeBrandImg from '../assets/artmee_brand.jpg';
 
 // Simple inline SVG social icons
 const InstagramIcon = () => (<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" /></svg>);
@@ -44,23 +45,30 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#7A1F3D] text-cream-200">
+    <footer className="bg-brand-navy-dark text-cream-200 border-t border-brand-coral/30">
       {/* Main Footer Grid */}
       <div className="container-custom pt-16 pb-12">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2.5 group mb-5">
-              <div className="w-10 h-10 bg-cream-100/10 border border-cream-200/20 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:bg-cream-100/20">
-                <Gift size={20} className="text-cream-100" strokeWidth={1.5} />
+            <Link to="/" className="flex items-center gap-3 group mb-5">
+              <div className="w-10 h-10 rounded-xl overflow-hidden border border-brand-gold/40 shadow-sm bg-[#F6EFE6]">
+                <img
+                  src={artmeeBrandImg}
+                  alt="Artmee Limited Logo"
+                  className="w-full h-full object-cover object-center"
+                />
               </div>
               <div>
-                <div className="font-serif text-base font-semibold text-cream-100 leading-tight">
+                <div className="font-serif text-lg font-bold text-white leading-tight">
                   Artmee Limited
+                </div>
+                <div className="font-sans text-[9px] uppercase tracking-[0.2em] text-brand-coral font-bold">
+                  Bespoke Shopping & Gifting
                 </div>
               </div>
             </Link>
-            <p className="font-sans text-sm text-cream-400 leading-relaxed mb-6">
+            <p className="font-sans text-sm text-cream-300 leading-relaxed mb-6">
               {SITE_CONFIG.tagline}
             </p>
             <div className="flex items-center gap-3">
@@ -107,9 +115,9 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="font-sans text-sm text-cream-400 hover:text-cream-100 transition-colors duration-200 flex items-center gap-1.5 group"
+                    className="font-sans text-sm text-cream-300 hover:text-brand-coral transition-colors duration-200 flex items-center gap-1.5 group"
                   >
-                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-coral" />
                     {link.label}
                   </Link>
                 </li>
@@ -119,7 +127,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-serif text-sm font-semibold text-cream-100 mb-5 uppercase tracking-wider">
+            <h4 className="font-serif text-sm font-semibold text-white mb-5 uppercase tracking-wider">
               Our Services
             </h4>
             <ul className="space-y-3">
@@ -127,9 +135,9 @@ export default function Footer() {
                 <li key={service.path}>
                   <Link
                     to={service.path}
-                    className="font-sans text-sm text-cream-400 hover:text-cream-100 transition-colors duration-200 flex items-center gap-1.5 group"
+                    className="font-sans text-sm text-cream-300 hover:text-brand-coral transition-colors duration-200 flex items-center gap-1.5 group"
                   >
-                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-coral" />
                     {service.label}
                   </Link>
                 </li>
@@ -139,12 +147,12 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif text-sm font-semibold text-cream-100 mb-5 uppercase tracking-wider">
+            <h4 className="font-serif text-sm font-semibold text-white mb-5 uppercase tracking-wider">
               Contact Us
             </h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-sm text-cream-400 font-sans">
-                <MapPin size={15} className="mt-0.5 flex-shrink-0 text-gold-light" />
+              <li className="flex items-start gap-3 text-sm text-cream-300 font-sans">
+                <MapPin size={15} className="mt-0.5 flex-shrink-0 text-brand-coral" />
                 <span>{SITE_CONFIG.location}</span>
               </li>
               <li>
@@ -152,20 +160,20 @@ export default function Footer() {
                   href={getWhatsAppURL()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-cream-400 hover:text-cream-100 transition-colors font-sans"
+                  className="flex items-center gap-3 text-sm text-cream-300 hover:text-brand-coral transition-colors font-sans"
                   id="footer-whatsapp"
                 >
-                  <MessageCircle size={15} className="flex-shrink-0 text-gold-light" />
+                  <MessageCircle size={15} className="flex-shrink-0 text-brand-coral" />
                   WhatsApp Us
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="flex items-center gap-3 text-sm text-cream-400 hover:text-cream-100 transition-colors font-sans"
+                  className="flex items-center gap-3 text-sm text-cream-300 hover:text-brand-coral transition-colors font-sans"
                   id="footer-email"
                 >
-                  <Mail size={15} className="flex-shrink-0 text-gold-light" />
+                  <Mail size={15} className="flex-shrink-0 text-brand-coral" />
                   {SITE_CONFIG.email}
                 </a>
               </li>

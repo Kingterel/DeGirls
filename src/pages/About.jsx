@@ -1,8 +1,8 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, Heart, Star, Users, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import promiseImg from '../assets/promise.jpg';
-import heroImg from '../assets/hero.jpg';
+import artmeeBrandImg from '../assets/artmee_brand.jpg';
 import { getWhatsAppURL, WHATSAPP_MESSAGES, SITE_CONFIG } from '../config/site.js';
 
 const VALUES = [
@@ -39,7 +39,7 @@ export default function About() {
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-[52px] text-charcoal-700 leading-tight mb-6">
                 We exist to make your life easier.
               </h1>
-              <div className="w-12 h-0.5 bg-gold-DEFAULT mb-6" />
+              <div className="w-12 h-0.5 bg-brand-gold mb-6" />
               <p className="font-sans text-charcoal-500 text-base sm:text-lg leading-relaxed mb-6">
                 Artmee Limited was founded on a simple belief: busy people in Abuja deserve a trusted partner who can handle all their shopping and gifting so they can focus on what truly matters.
               </p>
@@ -52,14 +52,16 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-auto lg:h-96"
+              className="rounded-3xl overflow-hidden shadow-2xl border border-brand-gold/30 p-2 sm:p-3 bg-white"
             >
-              <img
-                src={heroImg}
-                alt="Artmee Limited team at work, premium shopping and gifting service in Abuja"
-                className="w-full h-full object-cover"
-                fetchPriority="high"
-              />
+              <div className="rounded-2xl overflow-hidden bg-[#F6EFE6]">
+                <img
+                  src={artmeeBrandImg}
+                  alt="Artmee Limited brand identity"
+                  className="w-full h-auto object-contain block"
+                  fetchPriority="high"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -90,7 +92,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.65 }}
             >
-              <p className="font-script text-3xl text-[#7A1F3D] mb-4">Our Story</p>
+              <p className="font-script text-3xl text-brand-coral mb-4">Our Story</p>
               <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-700 leading-tight mb-6">
                 Started in Abuja, built for Abuja.
               </h2>
@@ -114,7 +116,7 @@ export default function About() {
                   'Every budget and every occasion',
                 ].map((point) => (
                   <li key={point} className="flex items-center gap-3 font-sans text-sm text-charcoal-600">
-                    <CheckCircle size={16} className="text-[#7A1F3D] flex-shrink-0" />
+                    <CheckCircle size={16} className="text-brand-coral flex-shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -141,8 +143,8 @@ export default function About() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white rounded-2xl p-8 border border-cream-300/60 shadow-sm"
               >
-                <div className="w-12 h-12 bg-[#F0D6DF] rounded-xl flex items-center justify-center mb-5">
-                  <val.icon size={22} className="text-[#7A1F3D]" strokeWidth={1.5} />
+                <div className="w-12 h-12 bg-brand-coral-soft border border-brand-coral-border/40 rounded-xl flex items-center justify-center mb-5">
+                  <val.icon size={22} className="text-brand-coral" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-serif text-xl text-charcoal-700 mb-3">{val.title}</h3>
                 <p className="font-sans text-sm text-charcoal-500 leading-relaxed">{val.desc}</p>
@@ -153,7 +155,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-[#7A1F3D] to-[#76508A] text-center">
+      <section className="py-20 bg-brand-navy-dark text-center border-t border-brand-gold/30">
         <div className="container-custom max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}

@@ -10,19 +10,19 @@ export default function FAQs() {
   return (
     <main className="overflow-x-hidden">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#7A1F3D] to-[#76508A] pt-28 pb-16 lg:pt-36 lg:pb-20">
+      <section className="bg-brand-navy-dark text-cream-100 pt-28 pb-16 lg:pt-36 lg:pb-20 border-b border-brand-gold/20">
         <div className="container-custom text-center max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="section-eyebrow text-[#C97A96] mb-4">FAQs</p>
+            <p className="section-eyebrow text-brand-gold-light mb-4">FAQs</p>
             <h1 className="font-serif text-4xl sm:text-5xl text-cream-100 leading-tight mb-5">
               Frequently Asked Questions
             </h1>
-            <div className="w-12 h-0.5 bg-gold-light mx-auto mb-5" />
-            <p className="font-sans text-cream-400 text-base leading-relaxed">
+            <div className="w-12 h-0.5 bg-brand-gold mx-auto mb-5" />
+            <p className="font-sans text-cream-300 text-base leading-relaxed">
               Have a question? We've answered the most common ones below. If you still need help, just reach out.
             </p>
           </motion.div>
@@ -32,7 +32,7 @@ export default function FAQs() {
       {/* FAQ List */}
       <section className="py-16 lg:py-24 bg-cream-100">
         <div className="container-custom max-w-3xl">
-          <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-cream-300/60">
+          <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-cream-300/80">
             <FAQAccordion faqs={FAQS} />
           </div>
 
@@ -42,12 +42,12 @@ export default function FAQs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-12 bg-gradient-to-br from-[#7A1F3D] to-[#76508A] rounded-3xl p-8 sm:p-10 text-center"
+            className="mt-12 bg-brand-navy-dark text-cream-100 border border-brand-gold/30 shadow-xl rounded-3xl p-8 sm:p-10 text-center"
           >
             <h2 className="font-serif text-2xl sm:text-3xl text-cream-100 mb-4">
               Still have a question?
             </h2>
-            <p className="font-sans text-cream-400 text-sm leading-relaxed mb-7 max-w-sm mx-auto">
+            <p className="font-sans text-cream-300 text-sm leading-relaxed mb-7 max-w-sm mx-auto">
               Our team is responsive and happy to help. Reach us on WhatsApp for the fastest reply.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

@@ -21,7 +21,7 @@ export default function ServiceCard({ service, index }) {
         {/* Image */}
         <div className="relative overflow-hidden aspect-[4/3]">
           {/* Number Badge */}
-          <div className="absolute top-3 left-3 z-10 w-7 h-7 bg-[#7A1F3D] text-cream-100 rounded-full flex items-center justify-center text-xs font-sans font-semibold">
+          <div className="absolute top-3 left-3 z-10 w-7 h-7 bg-brand-navy text-white rounded-full flex items-center justify-center text-xs font-sans font-bold shadow-md">
             {index + 1}
           </div>
 
@@ -31,19 +31,20 @@ export default function ServiceCard({ service, index }) {
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
         {/* Content */}
-        <div className="p-5">
-          <h3 className="font-serif text-[17px] font-semibold text-charcoal-700 mb-1.5 group-hover:text-[#7A1F3D] transition-colors duration-200">
+        <div className="p-5 sm:p-6 bg-white">
+          <h3 className="font-serif text-[18px] font-bold text-charcoal-900 mb-2 group-hover:text-brand-coral transition-colors duration-200">
             {service.name}
           </h3>
-          <p className="font-sans text-sm text-charcoal-400 leading-relaxed mb-4">
+          <p className="font-sans text-sm text-charcoal-600 leading-relaxed mb-4">
             {service.shortDescription}
           </p>
-          <div className="flex items-center gap-1 text-[#7A1F3D] group-hover:gap-2 transition-all duration-200">
-            <ArrowRight size={16} strokeWidth={2} />
+          <div className="flex items-center gap-1.5 text-xs font-sans font-bold text-brand-coral group-hover:gap-2.5 transition-all duration-200">
+            <span>Explore Service</span>
+            <ArrowRight size={14} strokeWidth={2.5} />
           </div>
         </div>
       </Link>

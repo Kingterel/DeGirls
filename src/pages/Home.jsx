@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageCircle, Clock, ShieldCheck, Wallet, MapPin, CheckCircle } from 'lucide-react';
+import { ArrowRight, MessageCircle, Clock, ShieldCheck, Wallet, MapPin, CheckCircle, Sparkles, Heart, Star, PhoneCall } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 import heroImg from '../assets/hero.jpg';
 import promiseImg from '../assets/promise.jpg';
 import corporateImg from '../assets/corporate_gift.jpg';
+import artmeeBrandImg from '../assets/artmee_brand.jpg';
 
 import SectionHeading from '../components/SectionHeading.jsx';
 import ServiceCard from '../components/ServiceCard.jsx';
@@ -20,23 +21,23 @@ import { getWhatsAppURL, WHATSAPP_MESSAGES } from '../config/site.js';
 const TRUST_ITEMS = [
   {
     icon: Clock,
-    title: 'Convenient',
-    desc: 'You tell us what you need',
+    title: 'Zero Market Stress',
+    desc: 'You send the list, we do the running.',
   },
   {
     icon: ShieldCheck,
-    title: 'Trusted',
-    desc: 'We source from reliable vendors',
+    title: '100% Verified Quality',
+    desc: 'Handpicked from trusted, vetted vendors.',
   },
   {
     icon: Wallet,
-    title: 'Flexible',
-    desc: 'For every budget and occasion',
+    title: 'Every Budget Welcome',
+    desc: 'Bespoke solutions customized for you.',
   },
   {
     icon: MapPin,
-    title: 'Nationwide',
-    desc: 'Serving Abuja and beyond',
+    title: 'Abuja & Nationwide',
+    desc: 'Prompt doorstep delivery you can rely on.',
   },
 ];
 
@@ -44,23 +45,33 @@ const HOW_IT_WORKS = [
   {
     step: '01',
     title: 'Tell Us What You Need',
-    desc: 'Send us the details of what you\'re looking for via WhatsApp or our enquiry form.',
+    desc: 'Send us a shopping list, an item photo, or your gifting idea via WhatsApp or our quick enquiry form.',
   },
   {
     step: '02',
     title: 'We Source & Curate',
-    desc: 'We find the best options based on your needs and budget, from our trusted vendor network.',
+    desc: 'We scour trusted markets and vendors, negotiate the best rates, verify quality, and curate your order.',
   },
   {
     step: '03',
-    title: 'We Deliver',
-    desc: 'Your items are carefully packaged and delivered to your door on schedule.',
+    title: 'Delivered With Love',
+    desc: 'Every item is packaged beautifully and delivered right to your home, office, or event on schedule.',
   },
+];
+
+const CREED_ITEMS = [
+  'We Find It',
+  'We Source It',
+  'We Verify It',
+  'We Negotiate It',
+  'We Curate It',
+  'We Package It',
+  'We Deliver It',
 ];
 
 // Animation variants
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 24 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
@@ -71,141 +82,203 @@ const fadeUp = {
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      {/* ─── HERO ─── */}
-      <section className="relative bg-cream-100 pt-16 lg:pt-[72px] overflow-hidden">
-        {/* Brand Identity Banner — full width, the very first thing visitors see */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-          className="relative w-full overflow-hidden shadow-lg shadow-[#7A1F3D]/10"
-        >
-          <img
-            src={heroImg}
-            alt="Artmee Limited, premium shopping and gifting service in Abuja"
-            className="w-full object-cover object-center"
-            style={{ maxHeight: '72vh' }}
-            fetchPriority="high"
-          />
-          {/* Subtle gradient vignette at bottom */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream-100/60 pointer-events-none" />
-          {/* Floating service pills */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.0, duration: 0.5 }}
-            className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-4 shadow-lg hidden sm:block"
-          >
-            {['Gifts', 'Groceries', 'Events', 'Corporate', '& More'].map((item) => (
-              <div key={item} className="flex items-center gap-1.5 mb-1 last:mb-0">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#7A1F3D] flex-shrink-0" />
-                <span className="font-sans text-xs font-medium text-charcoal-600">{item}</span>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
+      {/* ─── WELCOMING MODERN HERO ─── */}
+      <section className="relative bg-gradient-to-b from-cream-100 via-cream-50 to-cream-100 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden border-b border-cream-300/60">
+        {/* Soft atmospheric background lights */}
+        <div className="absolute top-12 left-1/4 w-96 h-96 bg-brand-coral/5 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute top-32 right-10 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-        {/* Copy + CTAs — below the brand image */}
-        <div className="container-custom w-full py-14 lg:py-20">
-          <div className="max-w-3xl mx-auto text-center">
-              <motion.p
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 text-left">
+              {/* Welcoming pill badge */}
+              <motion.div
                 custom={0}
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="section-eyebrow mb-5"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-coral-soft border border-brand-coral-border/60 text-brand-coral text-xs font-sans font-semibold tracking-wide mb-6 shadow-2xs"
               >
-                Your personal shopping and gifting partner in Abuja
-              </motion.p>
+                <Sparkles size={14} className="text-brand-gold-dark" />
+                <span>Abuja's Premier Shopping & Bespoke Gifting Concierge</span>
+              </motion.div>
 
+              {/* Main Headline */}
               <motion.h1
                 custom={0.1}
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="font-serif text-4xl sm:text-5xl lg:text-[56px] text-charcoal-700 leading-[1.1] mb-6"
+                className="font-serif text-4xl sm:text-5xl lg:text-[54px] text-charcoal-700 leading-[1.12] tracking-tight mb-6"
               >
-                We handle all your shopping and gifting so you don't have to stress.
+                Consider it done. <br className="hidden sm:inline" />
+                <span className="text-brand-coral">We shop, curate & deliver</span> so you never have to stress.
               </motion.h1>
 
+              {/* Welcoming Subtitle */}
               <motion.p
                 custom={0.2}
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="font-sans text-base sm:text-lg text-charcoal-500 leading-relaxed mb-10 max-w-lg"
+                className="font-sans text-base sm:text-lg text-charcoal-500 leading-relaxed mb-8 max-w-xl"
               >
-                Whether it's everyday essentials, a special occasion, or a corporate order, we find it, curate it, and deliver it.
+                Say goodbye to crowded market runs and gifting dilemmas. From custom luxury gift hampers and everyday essentials to hard-to-find items, Artmee Limited handles every single detail with white-glove care.
               </motion.p>
 
+              {/* Action Buttons */}
               <motion.div
                 custom={0.3}
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-wrap gap-4 justify-center"
+                className="flex flex-wrap items-center gap-4"
               >
-                <Link to="/services" className="btn-primary text-sm px-8 py-4" id="hero-cta-services">
-                  Explore Our Services
-                  <ArrowRight size={16} />
+                <Link
+                  to="/contact"
+                  className="btn-primary text-sm sm:text-base px-8 py-4 shadow-lg shadow-brand-coral/20"
+                  id="hero-cta-enquiry"
+                >
+                  Place an Enquiry
+                  <ArrowRight size={18} />
                 </Link>
+
                 <a
                   href={getWhatsAppURL(WHATSAPP_MESSAGES.default)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary text-sm px-8 py-4"
+                  className="btn-whatsapp text-sm sm:text-base px-7 py-4 shadow-md shadow-green-500/20"
                   id="hero-cta-whatsapp"
                 >
-                  <MessageCircle size={16} />
+                  <MessageCircle size={18} />
                   Chat on WhatsApp
                 </a>
               </motion.div>
 
-              {/* Trust Signals */}
+              {/* Trust Micro-Indicators */}
               <motion.div
                 custom={0.4}
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-wrap gap-x-6 gap-y-2 mt-10"
+                className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-8 mt-8 border-t border-cream-300/80"
               >
-                {['Based in Abuja, trusted across Nigeria', 'Every budget welcome'].map(
-                  (item) => (
-                    <div key={item} className="flex items-center gap-2 text-xs font-sans text-charcoal-400">
-                      <CheckCircle size={13} className="text-[#7A1F3D] flex-shrink-0" />
-                      {item}
-                    </div>
-                  )
-                )}
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={16} className="text-brand-coral flex-shrink-0" />
+                  <span className="font-sans text-xs text-charcoal-600 font-medium">Abuja & Nationwide</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={16} className="text-brand-coral flex-shrink-0" />
+                  <span className="font-sans text-xs text-charcoal-600 font-medium">Personalized Sourcing</span>
+                </div>
+                <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
+                  <CheckCircle size={16} className="text-brand-coral flex-shrink-0" />
+                  <span className="font-sans text-xs text-charcoal-600 font-medium">Every Budget Welcome</span>
+                </div>
               </motion.div>
             </div>
-          </div>
 
-        {/* Decorative blobs */}
-        <div className="absolute top-1/3 -right-16 w-48 h-48 bg-[#F0D6DF] rounded-full opacity-30 blur-3xl -z-10 pointer-events-none" />
-        <div className="absolute top-1/2 -left-16 w-48 h-48 bg-cream-300 rounded-full opacity-40 blur-3xl -z-10 pointer-events-none" />
+            {/* Right Column: Authentic Untouched Brand Asset Showcase */}
+            <div className="lg:col-span-5 relative">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                className="relative mx-auto max-w-md lg:max-w-none"
+              >
+                {/* Decorative glow backing */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy/15 via-brand-gold/15 to-transparent rounded-3xl blur-2xl -z-10 transform -rotate-2" />
+
+                {/* The Original Brand Asset - Preserved 100% Untouched in Design, Fonts & Proportions */}
+                <div className="relative rounded-3xl overflow-hidden bg-white border border-brand-gold/30 shadow-2xl shadow-brand-navy/15 p-2 sm:p-3 transition-transform duration-500 hover:scale-[1.01]">
+                  <div className="rounded-2xl overflow-hidden bg-[#F6EFE6]">
+                    <img
+                      src={artmeeBrandImg}
+                      alt="Artmee Limited - We find it, We source it, We verify it, We negotiate it, We curate it, We package it, We deliver it"
+                      className="w-full h-auto object-contain block"
+                      fetchPriority="high"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating Highlight Badge 1 */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                  className="absolute -top-4 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-cream-300 hidden sm:flex items-center gap-3"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-coral-soft border border-brand-coral-border/50 flex items-center justify-center text-brand-coral">
+                    <Heart size={18} />
+                  </div>
+                  <div>
+                    <p className="font-serif text-xs font-semibold text-charcoal-700">Curated With Care</p>
+                    <p className="font-sans text-[11px] text-charcoal-400">Treated like our own</p>
+                  </div>
+                </motion.div>
+
+                {/* Floating Highlight Badge 2 */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.0, duration: 0.6 }}
+                  className="absolute -bottom-5 -right-4 sm:-right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-cream-300 hidden sm:flex items-center gap-3"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-gold-soft border border-brand-gold/40 flex items-center justify-center text-brand-gold-dark">
+                    <Star size={18} />
+                  </div>
+                  <div>
+                    <p className="font-serif text-xs font-semibold text-charcoal-700">White-Glove Delivery</p>
+                    <p className="font-sans text-[11px] text-charcoal-400">Prompt & dependable</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+
+          </div>
+        </div>
       </section>
 
-      {/* ─── SERVICES ─── */}
+      {/* ─── CATCHY CREED RIBBON ─── */}
+      <section className="bg-brand-navy text-cream-100 py-4 sm:py-5 border-y border-brand-gold/30 shadow-sm overflow-hidden">
+        <div className="container-custom">
+          <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-4 sm:gap-x-8 text-center">
+            {CREED_ITEMS.map((item, idx) => (
+              <div key={item} className="flex items-center gap-3 sm:gap-4">
+                <span className="font-serif text-sm sm:text-base tracking-wide font-medium text-cream-100">
+                  {item}
+                </span>
+                {idx < CREED_ITEMS.length - 1 && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── QUICK SERVICE BROWSER / CATCHY FEATURE HIGHLIGHT ─── */}
       <section className="py-20 lg:py-28 bg-cream-100" id="services">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Our Services"
-            heading="Six Ways We Make Life Easier"
-            subtext="From a quick grocery run to a full event setup, we have you covered."
+            eyebrow="Our Bespoke Services"
+            heading="How Can We Make Life Easier For You Today?"
+            subtext="Select what you need below, and our concierge team will take it from here."
             align="center"
-            className="mb-14"
+            className="mb-16"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {SERVICES.map((service, i) => (
               <ServiceCard key={service.id} service={service} index={i} />
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Link to="/services" className="btn-secondary" id="home-services-cta">
-              View All Services
+          <div className="text-center mt-14">
+            <Link to="/services" className="btn-secondary px-8 py-3.5" id="home-services-cta">
+              View Complete Services Guide
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -213,7 +286,7 @@ export default function Home() {
       </section>
 
       {/* ─── TRUST BAR ─── */}
-      <section className="bg-cream-200 border-y border-cream-300 py-10">
+      <section className="bg-cream-200 border-y border-cream-300 py-12">
         <div className="container-custom">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
             {TRUST_ITEMS.map((item, i) => (
@@ -225,14 +298,14 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="flex items-start gap-4"
               >
-                <div className="w-11 h-11 rounded-xl border border-cream-400 bg-white flex items-center justify-center flex-shrink-0">
-                  <item.icon size={20} className="text-[#7A1F3D]" strokeWidth={1.5} />
+                <div className="w-12 h-12 rounded-2xl border border-cream-300 bg-white flex items-center justify-center flex-shrink-0 shadow-2xs">
+                  <item.icon size={22} className="text-brand-coral" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="font-serif text-base font-semibold text-charcoal-700 leading-tight">
                     {item.title}
                   </p>
-                  <p className="font-sans text-xs text-charcoal-400 mt-1 leading-snug">{item.desc}</p>
+                  <p className="font-sans text-xs text-charcoal-500 mt-1 leading-snug">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -240,7 +313,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── OUR PROMISE ─── */}
+      {/* ─── OUR PROMISE & EXPERIENCE ─── */}
       <section className="py-20 lg:py-28 bg-cream-100">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -251,33 +324,47 @@ export default function Home() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.65, ease: 'easeOut' }}
             >
-              <p className="font-script text-3xl text-[#7A1F3D] mb-4">Our Promise</p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-charcoal-700 leading-tight mb-6">
-                We do the shopping, so you can focus on what really matters.
+              <p className="font-script text-4xl text-brand-coral mb-3">Our Promise</p>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] text-charcoal-700 leading-tight mb-6">
+                We handle your errands, so you can focus on living.
               </h2>
               <div className="divider mb-6" />
+              <p className="font-sans text-charcoal-600 text-base leading-relaxed mb-6">
+                Whether it is sourcing rare ingredients, hunting down a specific fabric, or surprising someone special with a bespoke hamper in Abuja, you will never have to spend hours in traffic or negotiating with multiple vendors.
+              </p>
               <p className="font-sans text-charcoal-500 text-base leading-relaxed mb-8">
-                Gifts, essentials, events, corporate orders. All in one place. We take the stress out of shopping so your time, energy, and focus stay where they belong.
+                We pride ourselves on attention to detail, transparent communication, and impeccable packaging that makes every delivery feel like a gift.
               </p>
 
-              <ul className="space-y-3 mb-10">
+              <ul className="space-y-3.5 mb-10">
                 {[
-                  'Curated from trusted vendors',
-                  'Delivered on your schedule',
-                  'Every budget and occasion',
-                  'White-glove service, always',
+                  'Hand-inspected goods from trusted vendors',
+                  'Same-day and scheduled deliveries across Abuja',
+                  'Customized packaging & personalized note cards',
+                  'Every budget respected with full transparency',
                 ].map((point) => (
-                  <li key={point} className="flex items-center gap-3 text-sm font-sans text-charcoal-600">
-                    <CheckCircle size={16} className="text-[#7A1F3D] flex-shrink-0" />
-                    {point}
+                  <li key={point} className="flex items-center gap-3 text-sm font-sans text-charcoal-700">
+                    <CheckCircle size={17} className="text-brand-coral flex-shrink-0" />
+                    <span>{point}</span>
                   </li>
                 ))}
               </ul>
 
-              <Link to="/contact" className="btn-primary" id="promise-cta">
-                Get Started
-                <ArrowRight size={16} />
-              </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link to="/contact" className="btn-primary" id="promise-cta">
+                  Start Your Request
+                  <ArrowRight size={16} />
+                </Link>
+                <a
+                  href={getWhatsAppURL(WHATSAPP_MESSAGES.default)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                >
+                  <MessageCircle size={16} />
+                  Speak to Concierge
+                </a>
+              </div>
             </motion.div>
 
             {/* Right — Image */}
@@ -288,42 +375,40 @@ export default function Home() {
               transition={{ duration: 0.65, ease: 'easeOut' }}
               className="relative"
             >
-              <div className="rounded-3xl overflow-hidden aspect-[3/4] lg:aspect-[4/5] shadow-xl shadow-[#7A1F3D]/10">
+              <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl shadow-brand-navy/15 border border-cream-300">
                 <img
                   src={promiseImg}
-                  alt="Happy customer relaxing while Artmee Limited handles her shopping"
+                  alt="Customer relaxing while Artmee Limited manages her shopping"
                   loading="lazy"
                   className="w-full h-full object-cover object-top"
                 />
-                {/* Overlay text */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#7A1F3D]/80 via-[#76508A]/30 to-transparent">
-                  <p className="font-script text-white text-3xl leading-tight">Shopping &</p>
-                  <p className="font-script text-white text-3xl leading-tight">Gifting Simplified</p>
+                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-brand-navy-dark/95 via-brand-navy/50 to-transparent text-cream-50">
+                  <p className="font-script text-3xl text-brand-gold-light leading-tight">Shopping & Gifting</p>
+                  <p className="font-serif text-xl sm:text-2xl text-white font-medium">Simplified with Elegance</p>
                 </div>
               </div>
 
-              {/* Decorative blob */}
-              <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-cream-300 rounded-full blur-3xl opacity-60 -z-10" />
-              <div className="absolute -top-8 -right-8 w-32 h-32 bg-[#F0D6DF] rounded-full blur-3xl opacity-40 -z-10" />
+              {/* Decorative glow backing */}
+              <div className="absolute -bottom-8 -left-8 w-52 h-52 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none -z-10" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section className="py-20 lg:py-28 bg-cream-200">
+      <section className="py-20 lg:py-28 bg-cream-200 border-y border-cream-300">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="How It Works"
-            heading="Simple as 1, 2, 3"
-            subtext="Getting started with Artmee Limited only takes a few minutes."
+            eyebrow="Simple & Seamless"
+            heading="How Artmee Works"
+            subtext="From your first message to final delivery, we keep things simple and effortless."
             align="center"
             className="mb-16"
           />
 
           <div className="relative">
             {/* Connecting line (desktop only) */}
-            <div className="hidden lg:block absolute top-12 left-1/6 right-1/6 h-px bg-cream-400 z-0" />
+            <div className="hidden lg:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-cream-300 z-0" />
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8 relative z-10">
               {HOW_IT_WORKS.map((step, i) => (
@@ -335,10 +420,10 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: i * 0.12 }}
                   className="flex flex-col items-start lg:items-center text-left lg:text-center"
                 >
-                  <div className="w-24 h-24 bg-white rounded-2xl border border-cream-300 shadow-sm flex items-center justify-center mb-6">
-                    <span className="font-serif text-3xl font-bold text-[#7A1F3D]">{step.step}</span>
+                  <div className="w-20 h-20 bg-white rounded-2xl border border-brand-gold/30 shadow-md flex items-center justify-center mb-6">
+                    <span className="font-serif text-2xl font-bold text-brand-navy">{step.step}</span>
                   </div>
-                  <h3 className="font-serif text-xl text-charcoal-700 mb-3">{step.title}</h3>
+                  <h3 className="font-serif text-xl font-semibold text-charcoal-700 mb-3">{step.title}</h3>
                   <p className="font-sans text-sm text-charcoal-500 leading-relaxed max-w-xs">
                     {step.desc}
                   </p>
@@ -349,7 +434,7 @@ export default function Home() {
 
           <div className="text-center mt-14">
             <Link to="/contact" className="btn-primary" id="how-it-works-cta">
-              Place an Enquiry
+              Send Your Request
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -360,8 +445,9 @@ export default function Home() {
       <section className="py-20 lg:py-28 bg-cream-100">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Every Occasion"
-            heading="Whatever the Occasion, We've Got You."
+            eyebrow="Celebrate Life's Moments"
+            heading="Whatever the Occasion, We've Got You Covered"
+            subtext="Handcrafted gift curation for every milestone and celebration."
             align="center"
             className="mb-14"
           />
@@ -374,7 +460,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.45, delay: i * 0.06 }}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-square"
+                className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-square shadow-sm"
               >
                 <img
                   src={occasion.image}
@@ -382,12 +468,12 @@ export default function Home() {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#7A1F3D]/80 via-[#7A1F3D]/20 to-transparent transition-all duration-300 group-hover:from-[#7A1F3D]/90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/90 via-brand-navy/30 to-transparent transition-all duration-300 group-hover:from-brand-navy-dark/95" />
                 <div className="absolute inset-0 flex flex-col items-start justify-end p-4">
-                  <p className="font-serif text-white text-base font-medium leading-tight">
+                  <p className="font-serif text-white text-base font-semibold leading-tight">
                     {occasion.name}
                   </p>
-                  <p className="font-sans text-cream-400 text-xs mt-1 leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
+                  <p className="font-sans text-cream-200 text-xs mt-1 leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
                     {occasion.description}
                   </p>
                 </div>
@@ -397,7 +483,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link to="/services/bespoke-box" className="btn-secondary" id="occasions-cta">
-              Shop Bespoke Gifts
+              Explore Bespoke Gift Boxes
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -405,8 +491,9 @@ export default function Home() {
       </section>
 
       {/* ─── CORPORATE ─── */}
-      <section className="bg-[#7A1F3D] py-20 lg:py-28">
-        <div className="container-custom">
+      <section className="bg-brand-navy-dark text-cream-100 py-20 lg:py-28 relative overflow-hidden border-y border-brand-gold/30">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -414,24 +501,24 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="section-eyebrow text-[#C97A96] mb-4">Corporate Services</p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-cream-100 leading-tight mb-6">
-                Make Corporate Gifting Effortless
+              <p className="section-eyebrow text-brand-gold-light mb-4">Corporate & Executive</p>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] text-cream-100 leading-tight mb-6">
+                Make Corporate Gifting Effortless & Impressive
               </h2>
-              <div className="w-12 h-0.5 bg-gold-light mb-6" />
-              <p className="font-sans text-cream-400 text-base leading-relaxed mb-8 max-w-lg">
-                From executive gifts to bulk procurement, we help businesses source, curate, and deliver with ease. We've handled orders for 10 to 500 recipients and always show up on time.
+              <div className="w-12 h-0.5 bg-brand-gold mb-6" />
+              <p className="font-sans text-cream-300 text-base leading-relaxed mb-8 max-w-lg">
+                From executive appreciation hampers to bulk staff rewards and year-end client gifts, we source premium items, brand your packaging, and coordinate on-time multi-location deliveries.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href={getWhatsAppURL(WHATSAPP_MESSAGES.corporate)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-ghost"
+                  className="btn-gold"
                   id="corporate-whatsapp-cta"
                 >
                   <MessageCircle size={16} />
-                  Talk to Us About Corporate Orders
+                  Discuss Corporate Orders
                 </a>
               </div>
             </motion.div>
@@ -443,14 +530,13 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="relative"
             >
-              <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl shadow-[#7A1F3D]/30">
+              <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl border border-brand-gold/30">
                 <img
                   src={corporateImg}
-                  alt="Corporate gift boxes arranged elegantly"
+                  alt="Corporate gift hampers curated by Artmee Limited"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-[#7A1F3D]/20" />
               </div>
             </motion.div>
           </div>
@@ -461,9 +547,9 @@ export default function Home() {
       <section className="py-20 lg:py-28 bg-cream-100">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Client Stories"
-            heading="What Our Clients Say"
-            subtext="Here's what some of the people we've served have to say."
+            eyebrow="Words of Trust"
+            heading="Loved by Clients Across Abuja"
+            subtext="Hear directly from busy professionals, families, and businesses who rely on Artmee."
             align="center"
             className="mb-14"
           />
@@ -477,33 +563,33 @@ export default function Home() {
       </section>
 
       {/* ─── FAQ PREVIEW ─── */}
-      <section className="py-20 lg:py-24 bg-cream-200">
+      <section className="py-20 lg:py-24 bg-cream-200 border-t border-cream-300">
         <div className="container-custom max-w-3xl">
           <SectionHeading
-            eyebrow="FAQ"
+            eyebrow="Common Questions"
             heading="Frequently Asked Questions"
             align="center"
             className="mb-12"
           />
 
-          <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-cream-300/60">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-cream-300/80">
             <FAQAccordion faqs={FAQS} limit={5} />
           </div>
 
           <div className="text-center mt-8">
             <Link
               to="/faqs"
-              className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#7A1F3D] hover:text-[#76508A] transition-colors group"
+              className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-brand-coral hover:text-brand-coral-hover transition-colors group"
               id="faq-preview-cta"
             >
-              View All FAQs
+              <span>View All Frequently Asked Questions</span>
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ─── FINAL CTA ─── */}
+      {/* ─── WELCOMING FINAL CTA ─── */}
       <section className="py-20 lg:py-28 bg-cream-100">
         <div className="container-custom text-center max-w-2xl">
           <motion.div
@@ -512,24 +598,24 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-script text-4xl text-[#7A1F3D] mb-4">Let's get started</p>
+            <p className="font-script text-4xl text-brand-coral mb-3">Let's get started</p>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal-700 leading-tight mb-5">
-              Need Something? Let Us Handle It.
+              Need Something? Let Us Take Care of It.
             </h2>
-            <div className="w-12 h-0.5 bg-gold-DEFAULT mx-auto mb-6" />
+            <div className="divider mx-auto mb-6" />
             <p className="font-sans text-charcoal-500 text-base sm:text-lg leading-relaxed mb-10">
-              Tell us what you need and we'll take care of the rest. Whether it's a single gift or a full corporate order, nothing is too small or too big for us.
+              Tell us what you're looking for and we'll handle the rest. Whether it's a single emergency errand, a thoughtful anniversary box, or an office restock, no request is too small or too grand.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link to="/contact" className="btn-primary px-10 py-4 text-base" id="final-cta-btn">
-                Get Started
+              <Link to="/contact" className="btn-primary px-9 py-4 text-base" id="final-cta-btn">
+                Place an Enquiry
                 <ArrowRight size={18} />
               </Link>
               <a
                 href={getWhatsAppURL(WHATSAPP_MESSAGES.default)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-whatsapp px-10 py-4 text-base"
+                className="btn-whatsapp px-9 py-4 text-base"
                 id="final-cta-whatsapp"
               >
                 <MessageCircle size={18} />

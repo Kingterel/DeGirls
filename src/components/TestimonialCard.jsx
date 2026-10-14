@@ -11,22 +11,22 @@ export default function TestimonialCard({ testimonial, index }) {
       className="bg-white rounded-2xl p-8 border border-cream-300/60 shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow duration-300"
     >
       {/* Quote Icon */}
-      <div className="w-10 h-10 bg-[#F0D6DF] rounded-xl flex items-center justify-center">
-        <Quote size={18} className="text-[#7A1F3D]" strokeWidth={1.5} />
+      <div className="w-10 h-10 bg-brand-coral-soft border border-brand-coral-border/60 rounded-xl flex items-center justify-center">
+        <Quote size={18} className="text-brand-coral" strokeWidth={1.5} />
       </div>
 
       {/* Quote Text */}
-      <blockquote className="font-serif text-charcoal-600 text-base sm:text-lg leading-relaxed italic flex-1">
+      <blockquote className="font-serif text-charcoal-700 text-base sm:text-lg leading-relaxed italic flex-1">
         "{testimonial.quote}"
       </blockquote>
 
       {/* Divider */}
-      <div className="w-10 h-0.5 bg-gold-DEFAULT" />
+      <div className="w-10 h-0.5 bg-brand-gold" />
 
       {/* Attribution */}
       <div className="flex items-center gap-4">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7A1F3D] to-[#76508A] flex items-center justify-center flex-shrink-0">
-          <span className="font-sans text-xs font-semibold text-cream-100">
+        <div className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center flex-shrink-0 shadow-sm text-white">
+          <span className="font-sans text-xs font-bold">
             {testimonial.initials}
           </span>
         </div>

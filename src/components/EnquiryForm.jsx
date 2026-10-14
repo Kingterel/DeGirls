@@ -300,10 +300,10 @@ export default function EnquiryForm({ preselectedService = '' }) {
             onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFileChange(e.dataTransfer.files[0]); }}
             onClick={() => fileInputRef.current?.click()}
             className={`border-2 border-dashed rounded-xl px-6 py-8 flex flex-col items-center justify-center gap-3 cursor-pointer transition-all duration-200 ${dragOver
-              ? 'border-[#7A1F3D] bg-[#F0D6DF]'
+              ? 'border-brand-coral bg-brand-coral-soft'
               : form.imageFile
-                ? 'border-[#C97A96] bg-[#F9F0F3]'
-                : 'border-cream-400 hover:border-[#C97A96] hover:bg-cream-200/50'
+                ? 'border-brand-coral-border bg-brand-coral-soft/50'
+                : 'border-cream-300 hover:border-brand-coral hover:bg-cream-200/50'
               }`}
           >
             <input
@@ -316,8 +316,8 @@ export default function EnquiryForm({ preselectedService = '' }) {
             />
             {form.imageFile ? (
               <div className="flex items-center gap-3">
-                <CheckCircle size={20} className="text-[#7A1F3D]" />
-                <span className="font-sans text-sm text-[#7A1F3D] font-medium">
+                <CheckCircle size={20} className="text-brand-coral" />
+                <span className="font-sans text-sm text-brand-coral font-bold">
                   {form.imageFile.name}
                 </span>
                 <button
@@ -402,8 +402,8 @@ export default function EnquiryForm({ preselectedService = '' }) {
               className="bg-white rounded-3xl p-8 sm:p-12 max-w-md w-full text-center shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-16 h-16 bg-[#F0D6DF] rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle size={32} className="text-[#7A1F3D]" strokeWidth={1.5} />
+              <div className="w-16 h-16 bg-brand-coral-soft border border-brand-coral-border/60 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle size={32} className="text-brand-coral" strokeWidth={1.5} />
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl text-charcoal-700 mb-3">
                 Request Received!
