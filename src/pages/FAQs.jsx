@@ -10,14 +10,14 @@ export default function FAQs() {
   return (
     <main className="overflow-x-hidden">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#7A1F3D] to-[#76508A] pt-28 pb-16 lg:pt-36 lg:pb-20">
+      <section className="bg-gradient-to-br from-[#721C37] to-[#4A0E20] pt-28 pb-16 lg:pt-36 lg:pb-20">
         <div className="container-custom text-center max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="section-eyebrow text-[#C97A96] mb-4">FAQs</p>
+            <p className="section-eyebrow text-[#D4B87A] mb-4">FAQs</p>
             <h1 className="font-serif text-4xl sm:text-5xl text-cream-100 leading-tight mb-5">
               Frequently Asked Questions
             </h1>
@@ -42,7 +42,7 @@ export default function FAQs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-12 bg-gradient-to-br from-[#7A1F3D] to-[#76508A] rounded-3xl p-8 sm:p-10 text-center"
+            className="mt-12 bg-gradient-to-br from-[#721C37] to-[#4A0E20] rounded-3xl p-8 sm:p-10 text-center"
           >
             <h2 className="font-serif text-2xl sm:text-3xl text-cream-100 mb-4">
               Still have a question?

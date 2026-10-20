@@ -294,7 +294,7 @@ export default function Home() {
                 className="flex items-start gap-4"
               >
                 <div className="w-11 h-11 rounded-xl border border-cream-400 bg-white flex items-center justify-center flex-shrink-0">
-                  <item.icon size={20} className="text-[#7A1F3D]" strokeWidth={1.5} />
+                  <item.icon size={20} className="text-[#721C37]" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="font-serif text-base font-semibold text-charcoal-700 leading-tight">
@@ -319,7 +319,7 @@ export default function Home() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.65, ease: 'easeOut' }}
             >
-              <p className="font-script text-3xl text-[#7A1F3D] mb-4 text-center lg:text-left">Our Promise</p>
+              <p className="font-script text-3xl text-[#721C37] mb-4 text-center lg:text-left">Our Promise</p>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-charcoal-700 leading-tight mb-6 text-center lg:text-left">
                 We do the shopping, so you can focus on what really matters.
               </h2>
@@ -336,7 +336,7 @@ export default function Home() {
                   'White-glove service, always',
                 ].map((point) => (
                   <li key={point} className="flex items-center gap-3 text-sm font-sans text-charcoal-600">
-                    <CheckCircle size={16} className="text-[#7A1F3D] flex-shrink-0" />
+                    <CheckCircle size={16} className="text-[#721C37] flex-shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -356,7 +356,7 @@ export default function Home() {
               transition={{ duration: 0.65, ease: 'easeOut' }}
               className="relative"
             >
-              <div className="rounded-3xl overflow-hidden aspect-[3/4] lg:aspect-[4/5] shadow-xl shadow-[#7A1F3D]/10">
+              <div className="rounded-3xl overflow-hidden aspect-[3/4] lg:aspect-[4/5] shadow-xl shadow-[#721C37]/10">
                 <img
                   src={promiseImg}
                   alt="Happy customer relaxing while Artmee Limited handles her shopping"
@@ -364,7 +364,7 @@ export default function Home() {
                   className="w-full h-full object-cover object-top"
                 />
                 {/* Overlay text */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#7A1F3D]/80 via-[#76508A]/30 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#721C37]/85 via-[#4A0E20]/35 to-transparent">
                   <p className="font-script text-white text-3xl leading-tight">Shopping &</p>
                   <p className="font-script text-white text-3xl leading-tight">Gifting Simplified</p>
                 </div>
@@ -372,7 +372,7 @@ export default function Home() {
 
               {/* Decorative blob */}
               <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-cream-300 rounded-full blur-3xl opacity-60 -z-10" />
-              <div className="absolute -top-8 -right-8 w-32 h-32 bg-[#F0D6DF] rounded-full blur-3xl opacity-40 -z-10" />
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-[#FAF0F3] rounded-full blur-3xl opacity-40 -z-10" />
             </motion.div>
           </div>
         </div>
@@ -404,7 +404,7 @@ export default function Home() {
                   className="flex flex-col items-start lg:items-center text-left lg:text-center"
                 >
                   <div className="w-24 h-24 bg-white rounded-2xl border border-cream-300 shadow-sm flex items-center justify-center mb-6">
-                    <span className="font-serif text-3xl font-bold text-[#7A1F3D]">{step.step}</span>
+                    <span className="font-serif text-3xl font-bold text-[#721C37]">{step.step}</span>
                   </div>
                   <h3 className="font-serif text-xl text-charcoal-700 mb-3">{step.title}</h3>
                   <p className="font-sans text-sm text-charcoal-500 leading-relaxed max-w-xs">
@@ -450,7 +450,7 @@ export default function Home() {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#7A1F3D]/80 via-[#7A1F3D]/20 to-transparent transition-all duration-300 group-hover:from-[#7A1F3D]/90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#721C37]/85 via-[#721C37]/20 to-transparent transition-all duration-300 group-hover:from-[#721C37]/95" />
                 <div className="absolute inset-0 flex flex-col items-start justify-end p-4">
                   <p className="font-serif text-white text-base font-medium leading-tight">
                     {occasion.name}
@@ -473,7 +473,7 @@ export default function Home() {
       </section>
 
       {/* ─── CORPORATE ─── */}
-      <section className="bg-[#7A1F3D] py-20 lg:py-28">
+      <section className="bg-[#721C37] py-20 lg:py-28">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
@@ -482,7 +482,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="section-eyebrow text-[#C97A96] mb-4 text-center lg:text-left">Corporate Services</p>
+              <p className="section-eyebrow text-[#D4B87A] mb-4 text-center lg:text-left">Corporate Services</p>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-cream-100 leading-tight mb-6 text-center lg:text-left">
                 Make Corporate Gifting Effortless
               </h2>
@@ -511,14 +511,14 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="relative"
             >
-              <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl shadow-[#7A1F3D]/30">
+              <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl shadow-[#721C37]/30">
                 <img
                   src={corporateImg}
                   alt="Corporate gift boxes arranged elegantly"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-[#7A1F3D]/20" />
+                <div className="absolute inset-0 bg-[#721C37]/20" />
               </div>
             </motion.div>
           </div>
@@ -561,7 +561,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link
               to="/faqs"
-              className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#7A1F3D] hover:text-[#76508A] transition-colors group"
+              className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#721C37] hover:text-[#521226] transition-colors group"
               id="faq-preview-cta"
             >
               View All FAQs
@@ -580,7 +580,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-script text-4xl text-[#7A1F3D] mb-4">Let's get started</p>
+            <p className="font-script text-4xl text-[#721C37] mb-4">Let's get started</p>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal-700 leading-tight mb-5">
               Need Something? Let Us Handle It.
             </h2>

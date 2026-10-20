@@ -20,7 +20,7 @@ export default function FAQAccordion({ faqs, limit }) {
           >
             <span
               className={`font-serif text-base sm:text-lg font-medium transition-colors duration-200 ${
-                openId === faq.id ? 'text-[#7A1F3D]' : 'text-charcoal-700 group-hover:text-[#7A1F3D]'
+                openId === faq.id ? 'text-[#721C37]' : 'text-charcoal-700 group-hover:text-[#721C37]'
               }`}
             >
               {faq.question}
@@ -30,8 +30,8 @@ export default function FAQAccordion({ faqs, limit }) {
               transition={{ duration: 0.25 }}
               className={`flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-colors duration-200 ${
                 openId === faq.id
-                  ? 'bg-[#7A1F3D] border-[#7A1F3D] text-cream-100'
-                  : 'border-cream-400 text-charcoal-400 group-hover:border-[#C97A96] group-hover:text-[#7A1F3D]'
+                  ? 'bg-[#721C37] border-[#721C37] text-cream-100'
+                  : 'border-cream-400 text-charcoal-400 group-hover:border-[#721C37] group-hover:text-[#721C37]'
               }`}
             >
               <ChevronDown size={15} strokeWidth={2.5} />

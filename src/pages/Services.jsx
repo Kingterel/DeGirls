@@ -10,14 +10,14 @@ export default function Services() {
   return (
     <main className="overflow-x-hidden">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#7A1F3D] to-[#76508A] pt-28 pb-16 lg:pt-36 lg:pb-24">
+      <section className="bg-gradient-to-br from-[#721C37] to-[#4A0E20] pt-28 pb-16 lg:pt-36 lg:pb-24">
         <div className="container-custom text-center max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="section-eyebrow text-[#C97A96] mb-4">Our Services</p>
+            <p className="section-eyebrow text-[#D4B87A] mb-4">Our Services</p>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-[52px] text-cream-100 leading-tight mb-6">
               Six Ways We Make Life Easier
             </h1>

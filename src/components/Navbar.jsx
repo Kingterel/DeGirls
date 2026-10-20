@@ -170,7 +170,7 @@ export default function Navbar() {
                     end={link.path === '/'}
                     className={({ isActive }) =>
                       `flex items-center font-sans text-base font-medium px-4 py-3.5 rounded-xl transition-all duration-200 ${isActive
-                        ? 'bg-[#7A1F3D] text-cream-100'
+                        ? 'bg-[#721C37] text-cream-100'
                         : 'text-charcoal-600 hover:bg-cream-300'
                       }`
                     }
@@ -183,7 +183,7 @@ export default function Navbar() {
               {/* Drawer Footer */}
               <div className="px-6 py-6 border-t border-cream-300 space-y-3">
                 <div className="flex items-center gap-2 text-xs text-charcoal-500 font-sans mb-4">
-                  <MapPin size={13} className="text-[#7A1F3D]" />
+                  <MapPin size={13} className="text-[#721C37]" />
                   <span>{SITE_CONFIG.location}</span>
                 </div>
                 <a

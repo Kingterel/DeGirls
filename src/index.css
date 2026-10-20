@@ -56,19 +56,19 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-[#7A1F3D] text-cream-100 font-sans font-medium 
+    @apply inline-flex items-center gap-2 bg-[#721C37] text-cream-100 font-sans font-medium 
            px-7 py-3.5 rounded-full text-sm tracking-wide
            transition-all duration-300 ease-out
-           hover:bg-[#76508A] hover:shadow-lg hover:shadow-[#7A1F3D]/20 hover:-translate-y-0.5
-           focus:outline-none focus:ring-2 focus:ring-[#76508A] focus:ring-offset-2;
+           hover:bg-[#521226] hover:shadow-lg hover:shadow-[#721C37]/25 hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-[#721C37] focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 border border-brand-plum text-brand-plum font-sans font-medium 
+    @apply inline-flex items-center gap-2 border border-[#721C37] text-[#721C37] font-sans font-medium 
            px-7 py-3.5 rounded-full text-sm tracking-wide
            transition-all duration-300 ease-out
-           hover:bg-brand-plum hover:text-cream-100 hover:shadow-lg hover:-translate-y-0.5
-           focus:outline-none focus:ring-2 focus:ring-brand-plum focus:ring-offset-2;
+           hover:bg-[#721C37] hover:text-cream-100 hover:shadow-lg hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-[#721C37] focus:ring-offset-2;
   }
 
   .btn-whatsapp {
@@ -88,7 +88,7 @@
   }
 
   .section-eyebrow {
-    @apply text-xs font-sans font-semibold tracking-[0.2em] uppercase text-brand-plum;
+    @apply text-xs font-sans font-semibold tracking-[0.2em] uppercase text-[#721C37];
   }
 
   .section-heading {
@@ -116,7 +116,7 @@
            px-4 py-3.5 outline-none
            transition-all duration-200
            placeholder:text-charcoal-300
-           focus:border-brand-plum focus:ring-2 focus:ring-[#76508A]/10
+           focus:border-[#721C37] focus:ring-2 focus:ring-[#721C37]/15
            disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
@@ -129,11 +129,11 @@
   }
 
   .divider {
-    @apply w-12 h-0.5 bg-[#B8960C];
+    @apply w-12 h-0.5 bg-[#C6A15B];
   }
 
   .divider-long {
-    @apply w-20 h-0.5 bg-[#B8960C];
+    @apply w-20 h-0.5 bg-[#C6A15B];
   }
 
   .script-text {
@@ -142,7 +142,7 @@
 
   /* Overlay utilities */
   .overlay-gradient {
-    background: linear-gradient(135deg, rgba(122, 31, 61, 0.92) 0%, rgba(118, 80, 138, 0.7) 100%);
+    background: linear-gradient(135deg, rgba(114, 28, 55, 0.95) 0%, rgba(74, 14, 32, 0.88) 100%);
   }
 
   /* Line clamp */
@@ -167,11 +167,11 @@
   }
 
   .gradient-brand {
-    background: linear-gradient(135deg, #7A1F3D 0%, #76508A 100%);
+    background: linear-gradient(135deg, #721C37 0%, #4A0E20 100%);
   }
 
   .gradient-plum {
-    background: linear-gradient(135deg, #76508A 0%, #7A1F3D 100%);
+    background: linear-gradient(135deg, #4A0E20 0%, #721C37 100%);
   }
 
   .gradient-cream {
@@ -186,10 +186,10 @@
     background: #FAF7F2;
   }
   ::-webkit-scrollbar-thumb {
-    background: #76508A;
+    background: #721C37;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #7A1F3D;
+    background: #521226;
   }
 }

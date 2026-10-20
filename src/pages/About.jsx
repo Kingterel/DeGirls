@@ -118,7 +118,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.65 }}
             >
-              <p className="font-script text-3xl text-[#7A1F3D] mb-4 text-center">Our Story</p>
+              <p className="font-script text-3xl text-[#721C37] mb-4 text-center">Our Story</p>
               <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-700 leading-tight mb-6 text-center">
                 Started in Abuja, built for Abuja.
               </h2>
@@ -142,7 +142,7 @@ export default function About() {
                   'Every budget and every occasion',
                 ].map((point) => (
                   <li key={point} className="flex items-center gap-3 font-sans text-sm text-charcoal-600">
-                    <CheckCircle size={16} className="text-[#7A1F3D] flex-shrink-0" />
+                    <CheckCircle size={16} className="text-[#721C37] flex-shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -169,8 +169,8 @@ export default function About() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white rounded-2xl p-8 border border-cream-300/60 shadow-sm"
               >
-                <div className="w-12 h-12 bg-[#F0D6DF] rounded-xl flex items-center justify-center mb-5 mx-auto">
-                  <val.icon size={22} className="text-[#7A1F3D]" strokeWidth={1.5} />
+                <div className="w-12 h-12 bg-[#FAF0F3] rounded-xl flex items-center justify-center mb-5 mx-auto">
+                  <val.icon size={22} className="text-[#721C37]" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-serif text-xl text-charcoal-700 mb-3 text-center">{val.title}</h3>
                 <p className="font-sans text-sm text-charcoal-500 leading-relaxed text-justify">{val.desc}</p>
@@ -181,7 +181,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-[#7A1F3D] to-[#76508A] text-center">
+      <section className="py-20 bg-gradient-to-br from-[#721C37] to-[#4A0E20] text-center">
         <div className="container-custom max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
