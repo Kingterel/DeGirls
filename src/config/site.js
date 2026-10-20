@@ -3,17 +3,17 @@
 // ─── EmailJS Configuration ───────────────────────────────────────────────────
 // Sign up at https://emailjs.com, then fill in your credentials below.
 export const EMAILJS_CONFIG = {
-  serviceId:  'service_o61ro0i',
+  serviceId: 'service_o61ro0i',
   templateId: 'template_4afjo1c',
-  publicKey:  'SbwjKMxKi4fJME0Vs',
+  publicKey: 'SbwjKMxKi4fJME0Vs',
 };
 // ─────────────────────────────────────────────────────────────────────────────
 export const SITE_CONFIG = {
   name: 'Artmee Limited',
   tagline: 'Your personal artmee limited for shopping and gifting in Nigeria.',
   location: 'Abuja, Nigeria',
-  whatsappNumber: '+2348037648122',
-  email: 'kyeluwa.terungwa@gmail.com',
+  whatsappNumber: '+2348146518051',
+  email: 'info@artmeelimited.com',
   instagram: 'https://instagram.com/artmeelimited',
   tiktok: 'https://tiktok.com/@artmeelimited',
   twitter: 'https://twitter.com/artmeelimited',

@@ -92,7 +92,7 @@ export default function About() {
             >
               <p className="font-script text-3xl text-[#7A1F3D] mb-4">Our Story</p>
               <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-700 leading-tight mb-6">
-                Started in Abuja, built for Abuja.
+                Started in Abuja, built for Everyone.
               </h2>
               <div className="space-y-4 font-sans text-charcoal-500 text-base leading-relaxed">
                 <p>

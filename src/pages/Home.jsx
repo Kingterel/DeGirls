@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle, Clock, ShieldCheck, Wallet, MapPin, CheckCir
 import { motion } from 'framer-motion';
 
 import heroImg from '../assets/hero.jpg';
+import lifestyleImg from '../assets/lifestyle_hero.png';
 import promiseImg from '../assets/promise.jpg';
 import corporateImg from '../assets/corporate_gift.jpg';
 
@@ -83,8 +84,7 @@ export default function Home() {
           <img
             src={heroImg}
             alt="Artmee Limited, premium shopping and gifting service in Abuja"
-            className="w-full object-cover object-center"
-            style={{ maxHeight: '72vh' }}
+            className="w-full object-contain object-center bg-[#f5ede8]"
             fetchPriority="high"
           />
           {/* Subtle gradient vignette at bottom */}
@@ -105,9 +105,12 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Copy + CTAs — below the brand image */}
+        {/* Copy + CTAs — two-column: text left, lifestyle image right */}
         <div className="container-custom w-full py-14 lg:py-20">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            {/* Left — Text */}
+            <div>
               <motion.p
                 custom={0}
                 variants={fadeUp}
@@ -123,7 +126,7 @@ export default function Home() {
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="font-serif text-4xl sm:text-5xl lg:text-[56px] text-charcoal-700 leading-[1.1] mb-6"
+                className="font-serif text-4xl sm:text-5xl lg:text-[50px] text-charcoal-700 leading-[1.1] mb-6"
               >
                 We handle all your shopping and gifting so you don't have to stress.
               </motion.h1>
@@ -133,7 +136,7 @@ export default function Home() {
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="font-sans text-base sm:text-lg text-charcoal-500 leading-relaxed mb-10 max-w-lg"
+                className="font-sans text-base sm:text-lg text-charcoal-500 leading-relaxed mb-10"
               >
                 Whether it's everyday essentials, a special occasion, or a corporate order, we find it, curate it, and deliver it.
               </motion.p>
@@ -143,7 +146,7 @@ export default function Home() {
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-wrap gap-4 justify-center"
+                className="flex flex-wrap gap-4"
               >
                 <Link to="/services" className="btn-primary text-sm px-8 py-4" id="hero-cta-services">
                   Explore Our Services
@@ -179,7 +182,32 @@ export default function Home() {
                 )}
               </motion.div>
             </div>
+
+            {/* Right — Lifestyle Image with blend (visible on both mobile and desktop) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+              className="relative mt-6 lg:mt-0"
+            >
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl shadow-[#7A1F3D]/10 aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto">
+                <img
+                  src={lifestyleImg}
+                  alt="Artmee Limited gift boxes and branded shopping bags"
+                  className="w-full h-full object-cover object-center"
+                  fetchPriority="high"
+                />
+                {/* Left-edge fade blend into cream background (desktop only) */}
+                <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-cream-100 via-transparent to-transparent pointer-events-none" style={{ width: '35%' }} />
+                {/* Bottom fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-t from-cream-100/50 to-transparent pointer-events-none" />
+              </div>
+              {/* Decorative blob */}
+              <div className="absolute -bottom-6 -right-6 w-32 sm:w-40 h-32 sm:h-40 bg-[#F0D6DF] rounded-full blur-3xl opacity-50 -z-10" />
+            </motion.div>
+
           </div>
+        </div>
 
         {/* Decorative blobs */}
         <div className="absolute top-1/3 -right-16 w-48 h-48 bg-[#F0D6DF] rounded-full opacity-30 blur-3xl -z-10 pointer-events-none" />
