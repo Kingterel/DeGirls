@@ -1,8 +1,20 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageCircle, Clock, ShieldCheck, Wallet, MapPin, CheckCircle } from 'lucide-react';
+import {
+  ArrowRight,
+  MessageCircle,
+  Clock,
+  ShieldCheck,
+  Wallet,
+  MapPin,
+  CheckCircle,
+  Gift,
+  ShoppingBag,
+  Package,
+  Truck,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 
-import heroImg from '../assets/hero.jpg';
+import heroWelcomingImg from '../assets/hero_welcoming.jpg';
 import promiseImg from '../assets/promise.jpg';
 import corporateImg from '../assets/corporate_gift.jpg';
 
@@ -16,6 +28,29 @@ import { TESTIMONIALS } from '../data/testimonials.js';
 import { FAQS } from '../data/faqs.js';
 import { OCCASIONS } from '../data/occasions.js';
 import { getWhatsAppURL, WHATSAPP_MESSAGES } from '../config/site.js';
+
+const WELCOMING_FEATURES = [
+  {
+    icon: Gift,
+    title: 'Gifts',
+    desc: 'Personalized and thoughtful gift options for every occasion.',
+  },
+  {
+    icon: ShoppingBag,
+    title: 'Shopping',
+    desc: 'Get what you need, handpicked with care.',
+  },
+  {
+    icon: Package,
+    title: 'Sourcing',
+    desc: 'We find the best products, just for you.',
+  },
+  {
+    icon: Truck,
+    title: 'Delivery',
+    desc: 'Safe, reliable and on time.',
+  },
+];
 
 const TRUST_ITEMS = [
   {
@@ -60,7 +95,7 @@ const HOW_IT_WORKS = [
 
 // Animation variants
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 24 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
@@ -71,93 +106,73 @@ const fadeUp = {
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      {/* ─── HERO ─── */}
-      <section className="relative bg-cream-100 pt-16 lg:pt-[72px] overflow-hidden">
-        {/* Brand Identity Banner — full width, the very first thing visitors see */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-          className="relative w-full overflow-hidden shadow-lg shadow-[#7A1F3D]/10"
-        >
-          <img
-            src={heroImg}
-            alt="Artmee Limited, premium shopping and gifting service in Abuja"
-            className="w-full object-cover object-center"
-            style={{ maxHeight: '72vh' }}
-            fetchPriority="high"
-          />
-          {/* Subtle gradient vignette at bottom */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream-100/60 pointer-events-none" />
-          {/* Floating service pills */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.0, duration: 0.5 }}
-            className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-4 shadow-lg hidden sm:block"
-          >
-            {['Gifts', 'Groceries', 'Events', 'Corporate', '& More'].map((item) => (
-              <div key={item} className="flex items-center gap-1.5 mb-1 last:mb-0">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#7A1F3D] flex-shrink-0" />
-                <span className="font-sans text-xs font-medium text-charcoal-600">{item}</span>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* Copy + CTAs — below the brand image */}
-        <div className="container-custom w-full py-14 lg:py-20">
-          <div className="max-w-3xl mx-auto text-center">
-              <motion.p
+      {/* ─── WELCOMING HERO ─── */}
+      <section className="relative bg-[#FEF7EF] pt-24 pb-14 lg:pt-32 lg:pb-16 overflow-hidden border-b border-cream-300/60">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            
+            {/* Left Column: Welcoming Brand Copy */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              className="lg:col-span-6 xl:col-span-6 text-left"
+            >
+              {/* Eyebrow with horizontal dash line */}
+              <motion.div
                 custom={0}
                 variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                className="section-eyebrow mb-5"
+                className="flex items-center gap-3 mb-4"
               >
-                Your personal shopping and gifting partner in Abuja
-              </motion.p>
+                <span className="w-8 h-px bg-[#721C37]" />
+                <span className="font-sans text-xs tracking-wider uppercase text-[#721C37] font-semibold">
+                  Your Personal Shopping and Gifting Partner in Abuja
+                </span>
+              </motion.div>
 
+              {/* Main Headline */}
               <motion.h1
                 custom={0.1}
                 variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                className="font-serif text-4xl sm:text-5xl lg:text-[56px] text-charcoal-700 leading-[1.1] mb-6"
+                className="font-serif text-4xl sm:text-5xl lg:text-[50px] xl:text-[56px] text-charcoal-700 leading-[1.12] mb-6"
               >
-                We handle all your shopping and gifting so you don't have to stress.
+                Thoughtful Gifts,<br />
+                Premium Shopping,<br />
+                Right to Your Doorstep.
               </motion.h1>
 
+              {/* Subtitle */}
               <motion.p
                 custom={0.2}
                 variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                className="font-sans text-base sm:text-lg text-charcoal-500 leading-relaxed mb-10 max-w-lg"
+                className="font-sans text-base sm:text-lg text-charcoal-500 leading-relaxed mb-8 max-w-lg text-justify"
               >
-                Whether it's everyday essentials, a special occasion, or a corporate order, we find it, curate it, and deliver it.
+                From curated gifts to everyday essentials, we handle your shopping, gifting, sourcing and delivery needs — so you don't have to.
               </motion.p>
 
+              {/* Action Buttons */}
               <motion.div
                 custom={0.3}
                 variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                className="flex flex-wrap gap-4 justify-center"
+                className="flex flex-wrap items-center gap-4 mb-8"
               >
-                <Link to="/services" className="btn-primary text-sm px-8 py-4" id="hero-cta-services">
-                  Explore Our Services
+                <Link
+                  to="/services"
+                  className="inline-flex items-center gap-2 bg-[#721C37] hover:bg-[#5E1730] text-white font-sans font-semibold text-sm px-7 py-3.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                  id="hero-cta-services"
+                >
+                  <span>Explore Our Services</span>
                   <ArrowRight size={16} />
                 </Link>
+
                 <a
                   href={getWhatsAppURL(WHATSAPP_MESSAGES.default)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary text-sm px-8 py-4"
+                  className="inline-flex items-center gap-2 border border-charcoal-300 hover:border-charcoal-700 bg-white/50 hover:bg-white text-charcoal-700 font-sans font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-300 shadow-2xs hover:shadow-sm hover:-translate-y-0.5"
                   id="hero-cta-whatsapp"
                 >
-                  <MessageCircle size={16} />
-                  Chat on WhatsApp
+                  <MessageCircle size={18} className="text-[#721C37]" />
+                  <span>Chat on WhatsApp</span>
                 </a>
               </motion.div>
 
@@ -165,36 +180,85 @@ export default function Home() {
               <motion.div
                 custom={0.4}
                 variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                className="flex flex-wrap gap-x-6 gap-y-2 mt-10"
+                className="flex flex-wrap items-center gap-5 sm:gap-6 pt-2 text-xs sm:text-sm font-sans text-charcoal-600"
               >
-                {['Based in Abuja, trusted across Nigeria', 'Every budget welcome'].map(
-                  (item) => (
-                    <div key={item} className="flex items-center gap-2 text-xs font-sans text-charcoal-400">
-                      <CheckCircle size={13} className="text-[#7A1F3D] flex-shrink-0" />
-                      {item}
-                    </div>
-                  )
-                )}
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={16} className="text-[#721C37] flex-shrink-0" />
+                  <span>Based in Abuja, trusted across Nigeria</span>
+                </div>
+                <div className="hidden sm:block w-px h-4 bg-cream-400" />
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={16} className="text-[#721C37] flex-shrink-0" />
+                  <span>Every budget welcome</span>
+                </div>
               </motion.div>
-            </div>
-          </div>
+            </motion.div>
 
-        {/* Decorative blobs */}
-        <div className="absolute top-1/3 -right-16 w-48 h-48 bg-[#F0D6DF] rounded-full opacity-30 blur-3xl -z-10 pointer-events-none" />
-        <div className="absolute top-1/2 -left-16 w-48 h-48 bg-cream-300 rounded-full opacity-40 blur-3xl -z-10 pointer-events-none" />
+            {/* Right Column: Welcoming Hero Photograph */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:col-span-6 xl:col-span-6 relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#721C37]/15">
+                <img
+                  src={heroWelcomingImg}
+                  alt="Thoughtful Gifts, Premium Shopping, Right to Your Doorstep with Artmee Limited"
+                  className="w-full h-auto object-cover rounded-3xl block"
+                  fetchPriority="high"
+                />
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+
+        {/* Floating 4-Feature Card Bar (overlapping bottom of Hero) */}
+        <div className="container-custom relative z-20 mt-12 lg:mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="bg-white rounded-2xl sm:rounded-3xl shadow-xl shadow-[#721C37]/10 border border-cream-300/80 p-6 sm:p-8"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 divide-y sm:divide-y-0 sm:divide-x divide-cream-200">
+              {WELCOMING_FEATURES.map((feat, idx) => (
+                <div
+                  key={feat.title}
+                  className={`flex flex-col items-center text-center px-4 ${
+                    idx === 0 ? 'pt-0' : 'pt-5 sm:pt-0'
+                  }`}
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#FAF0F3] text-[#721C37] flex items-center justify-center mb-3.5">
+                    <feat.icon size={22} strokeWidth={1.75} />
+                  </div>
+                  <h3 className="font-serif text-lg font-semibold text-charcoal-700 mb-1.5">
+                    {feat.title}
+                  </h3>
+                  <p className="font-sans text-xs sm:text-[13px] text-charcoal-500 leading-relaxed max-w-[220px]">
+                    {feat.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* ─── SERVICES ─── */}
-      <section className="py-20 lg:py-28 bg-cream-100" id="services">
-        <div className="container-custom">
+      <section className="py-20 lg:py-28 bg-[#721C37] text-cream-100 relative overflow-hidden" id="services">
+        {/* Subtle decorative curved gold lines */}
+        <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-gold-DEFAULT/15 pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full border border-gold-DEFAULT/15 pointer-events-none" />
+
+        <div className="container-custom relative z-10">
           <SectionHeading
             eyebrow="Our Services"
             heading="Six Ways We Make Life Easier"
             subtext="From a quick grocery run to a full event setup, we have you covered."
             align="center"
-            className="mb-14"
+            className="mb-14 [&_h2]:text-cream-100 [&_p]:text-cream-300 [&_.section-eyebrow]:text-gold-light"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
@@ -204,7 +268,11 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/services" className="btn-secondary" id="home-services-cta">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 border border-gold-light text-cream-100 hover:bg-gold-light hover:text-charcoal-800 font-sans font-medium px-8 py-3.5 rounded-full transition-all duration-300"
+              id="home-services-cta"
+            >
               View All Services
               <ArrowRight size={16} />
             </Link>
@@ -251,12 +319,12 @@ export default function Home() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.65, ease: 'easeOut' }}
             >
-              <p className="font-script text-3xl text-[#7A1F3D] mb-4">Our Promise</p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-charcoal-700 leading-tight mb-6">
+              <p className="font-script text-3xl text-[#7A1F3D] mb-4 text-center lg:text-left">Our Promise</p>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-charcoal-700 leading-tight mb-6 text-center lg:text-left">
                 We do the shopping, so you can focus on what really matters.
               </h2>
-              <div className="divider mb-6" />
-              <p className="font-sans text-charcoal-500 text-base leading-relaxed mb-8">
+              <div className="divider mb-6 mx-auto lg:mx-0" />
+              <p className="font-sans text-charcoal-500 text-base leading-relaxed mb-8 text-justify">
                 Gifts, essentials, events, corporate orders. All in one place. We take the stress out of shopping so your time, energy, and focus stay where they belong.
               </p>
 
@@ -414,12 +482,12 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="section-eyebrow text-[#C97A96] mb-4">Corporate Services</p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-cream-100 leading-tight mb-6">
+              <p className="section-eyebrow text-[#C97A96] mb-4 text-center lg:text-left">Corporate Services</p>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-cream-100 leading-tight mb-6 text-center lg:text-left">
                 Make Corporate Gifting Effortless
               </h2>
-              <div className="w-12 h-0.5 bg-gold-light mb-6" />
-              <p className="font-sans text-cream-400 text-base leading-relaxed mb-8 max-w-lg">
+              <div className="w-12 h-0.5 bg-gold-light mb-6 mx-auto lg:mx-0" />
+              <p className="font-sans text-cream-400 text-base leading-relaxed mb-8 max-w-lg text-justify">
                 From executive gifts to bulk procurement, we help businesses source, curate, and deliver with ease. We've handled orders for 10 to 500 recipients and always show up on time.
               </p>
               <div className="flex flex-wrap gap-4">

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { MapPin, MessageCircle, X, Menu, Gift } from 'lucide-react';
+import { MapPin, MessageCircle, X, Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SITE_CONFIG, getWhatsAppURL } from '../config/site.js';
+import { SITE_CONFIG, getWhatsAppURL, WHATSAPP_MESSAGES } from '../config/site.js';
+import artmeeLogo from '../assets/artmee_logo_header.png';
 
 const NAV_LINKS = [
   { label: 'Home', path: '/' },
@@ -42,46 +43,40 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-            ? 'bg-cream-100/95 backdrop-blur-md shadow-sm border-b border-cream-300/60'
-            : 'bg-cream-100'
+            ? 'bg-[#FEF7EF]/95 backdrop-blur-md shadow-sm border-b border-cream-300/60'
+            : 'bg-[#FEF7EF]'
           }`}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between h-16 lg:h-[72px]">
+          <div className="flex items-center justify-between h-16 lg:h-[74px]">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
-              <div className="w-9 h-9 bg-[#7A1F3D] rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-[#76508A] group-hover:scale-105">
-                <Gift size={18} className="text-cream-100" strokeWidth={1.5} />
-              </div>
-              <div>
-                <div className="font-serif text-base font-semibold text-[#7A1F3D] leading-tight">
-                  Artmee Limited
-                </div>
-                <div className="hidden sm:block font-sans text-[9px] tracking-[0.15em] text-charcoal-400 uppercase leading-none">
-                  Shop · Gift · Source · Deliver
-                </div>
-              </div>
+            <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
+              <img
+                src={artmeeLogo}
+                alt="Artmee Limited"
+                className="h-10 sm:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+              />
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-2">
               {NAV_LINKS.map((link) => (
                 <NavLink
                   key={link.path}
                   to={link.path}
                   end={link.path === '/'}
                   className={({ isActive }) =>
-                    `relative font-sans text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200 ${isActive
-                      ? 'text-[#7A1F3D]'
-                      : 'text-charcoal-600 hover:text-[#7A1F3D] hover:bg-[#F9F0F3]'
+                    `relative font-sans text-sm font-medium px-3.5 py-2 transition-colors duration-200 ${isActive
+                      ? 'text-[#721C37] font-semibold'
+                      : 'text-charcoal-600 hover:text-[#721C37]'
                     }`
                   }
                 >
                   {({ isActive }) => (
                     <>
-                      {link.label}
+                      <span>{link.label}</span>
                       {isActive && (
-                        <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-[#7A1F3D] rounded-full" />
+                        <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#721C37] rounded-full" />
                       )}
                     </>
                   )}
@@ -92,21 +87,21 @@ export default function Navbar() {
             {/* Right Side */}
             <div className="hidden lg:flex items-center gap-3">
               {/* Location */}
-              <div className="flex items-center gap-1.5 text-xs text-charcoal-500 font-sans border border-cream-400 rounded-full px-3 py-1.5">
-                <MapPin size={13} className="text-[#7A1F3D] flex-shrink-0" />
-                <span>{SITE_CONFIG.location}</span>
+              <div className="flex items-center gap-1.5 text-xs text-charcoal-600 font-sans border border-cream-400 bg-white/70 rounded-full px-3.5 py-1.5 shadow-2xs">
+                <MapPin size={13} className="text-[#721C37] flex-shrink-0" />
+                <span>Abuja, Nigeria</span>
               </div>
 
-              {/* WhatsApp CTA */}
+              {/* Get in Touch CTA */}
               <a
-                href={getWhatsAppURL()}
+                href={getWhatsAppURL(WHATSAPP_MESSAGES.default)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary py-2.5 text-xs"
+                className="inline-flex items-center gap-2 bg-[#721C37] hover:bg-[#5E1730] text-white font-sans text-xs font-semibold px-5 py-2.5 rounded-full transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
                 id="navbar-whatsapp-cta"
               >
                 <MessageCircle size={14} />
-                Get in Touch
+                <span>Get in Touch</span>
               </a>
             </div>
 
@@ -149,11 +144,12 @@ export default function Navbar() {
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-cream-300">
-                <Link to="/" className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 bg-[#7A1F3D] rounded-lg flex items-center justify-center">
-                    <Gift size={16} className="text-cream-100" strokeWidth={1.5} />
-                  </div>
-                  <span className="font-serif text-sm font-semibold text-[#7A1F3D]">Artmee Limited</span>
+                <Link to="/" className="flex items-center gap-2">
+                  <img
+                    src={artmeeLogo}
+                    alt="Artmee Limited"
+                    className="h-8 w-auto object-contain"
+                  />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}

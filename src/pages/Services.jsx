@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading.jsx';
@@ -22,7 +22,7 @@ export default function Services() {
               Six Ways We Make Life Easier
             </h1>
             <div className="w-12 h-0.5 bg-gold-light mx-auto mb-6" />
-            <p className="font-sans text-cream-400 text-base sm:text-lg leading-relaxed">
+            <p className="font-sans text-cream-400 text-base sm:text-lg leading-relaxed text-center sm:text-justify max-w-2xl mx-auto">
               Whether it is a quick grocery run or a full event setup, we find it, source it, curate it, and deliver it.
             </p>
           </motion.div>
