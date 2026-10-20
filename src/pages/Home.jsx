@@ -74,36 +74,39 @@ export default function Home() {
     <main className="overflow-x-hidden">
       {/* ─── HERO ─── */}
       <section className="relative bg-cream-100 pt-16 lg:pt-[72px] overflow-hidden">
-        {/* Brand Identity Banner — full width, the very first thing visitors see */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-          className="relative w-full overflow-hidden shadow-lg shadow-[#7A1F3D]/10"
-        >
-          <img
-            src={heroImg}
-            alt="Artmee Limited, premium shopping and gifting service in Abuja"
-            className="w-full object-contain object-center bg-[#f5ede8]"
-            fetchPriority="high"
-          />
-          {/* Subtle gradient vignette at bottom */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream-100/60 pointer-events-none" />
-          {/* Floating service pills */}
+        {/* Brand Identity Banner — full width */}
+        <div className="relative w-full">
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.0, duration: 0.5 }}
-            className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-4 shadow-lg hidden sm:block"
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            className="relative w-full overflow-hidden shadow-lg shadow-[#7A1F3D]/10"
+          >
+            <img
+              src={heroImg}
+              alt="Artmee Limited, premium shopping and gifting service in Abuja"
+              className="w-full object-contain object-center bg-[#f5ede8]"
+              fetchPriority="high"
+            />
+            {/* Subtle gradient vignette at bottom */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream-100/60 pointer-events-none" />
+          </motion.div>
+
+          {/* Floating service pills — pushed down below the logo so no text is covered */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+            className="absolute top-full mt-3 right-6 sm:right-10 lg:right-16 bg-white/95 backdrop-blur-md rounded-2xl px-5 py-3.5 shadow-xl border border-cream-300/80 hidden sm:block z-20"
           >
             {['Gifts', 'Groceries', 'Events', 'Corporate', '& More'].map((item) => (
-              <div key={item} className="flex items-center gap-1.5 mb-1 last:mb-0">
+              <div key={item} className="flex items-center gap-2 mb-1 last:mb-0">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#7A1F3D] flex-shrink-0" />
-                <span className="font-sans text-xs font-medium text-charcoal-600">{item}</span>
+                <span className="font-sans text-xs font-semibold text-charcoal-700">{item}</span>
               </div>
             ))}
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Copy + CTAs — two-column: text left, lifestyle image right */}
         <div className="container-custom w-full py-14 lg:py-20">

@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, Heart, Star, Users, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import promiseImg from '../assets/promise.jpg';
@@ -52,12 +52,12 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-auto lg:h-96"
+              className="rounded-3xl overflow-hidden shadow-2xl bg-[#EFE7DE] border border-cream-300/60"
             >
               <img
                 src={heroImg}
-                alt="Artmee Limited team at work, premium shopping and gifting service in Abuja"
-                className="w-full h-full object-cover"
+                alt="Artmee Limited, personal shopping and gifting service in Abuja"
+                className="w-full h-auto object-contain block"
                 fetchPriority="high"
               />
             </motion.div>
