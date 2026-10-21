@@ -93,19 +93,19 @@ export default function Home() {
           </motion.div>
 
           {/* Floating service pills — pushed down below the logo so no text is covered */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}
             className="absolute top-full mt-3 right-6 sm:right-10 lg:right-16 bg-white/95 backdrop-blur-md rounded-2xl px-5 py-3.5 shadow-xl border border-cream-300/80 hidden sm:block z-20"
           >
-            {/* {['Gifts', 'Groceries', 'Events', 'Corporate', '& More'].map((item) => (
+            {['Gifts', 'Groceries', 'Events', 'Corporate', '& More'].map((item) => (
               <div key={item} className="flex items-center gap-2 mb-1 last:mb-0">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#7A1F3D] flex-shrink-0" />
                 <span className="font-sans text-xs font-semibold text-charcoal-700">{item}</span>
               </div>
-            ))} */}
-          </motion.div>
+            ))}
+          </motion.div> */}
         </div>
 
         {/* Copy + CTAs — two-column: text left, lifestyle image right */}
