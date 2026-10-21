@@ -82,12 +82,12 @@ export default function Home() {
             transition={{ duration: 0.9, ease: 'easeOut' }}
             className="relative w-full overflow-hidden shadow-lg shadow-[#7A1F3D]/10"
           >
-            <img
+            {/* <img
               src={heroImg}
               alt="Artmee Limited, premium shopping and gifting service in Abuja"
               className="w-full object-contain object-center bg-[#f5ede8]"
               fetchPriority="high"
-            />
+            /> */}
             {/* Subtle gradient vignette at bottom */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream-100/60 pointer-events-none" />
           </motion.div>
